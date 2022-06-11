@@ -51,5 +51,32 @@ fwdB = Dict{String, Vector{String}}(
     "X"     =>  String[           "\u03c7", ],   #    χ
     "Y"     =>  String[           "\u03c8", ],   #    ψ
     "Z"     =>  String[           "\u03b6", ],   #    ζ
+    # SubSection 2.1 - Greek, uppercase
+    "*A"    =>  String[ "\u0391", ],    # Α
+    "*B"    =>  String[ "\u0392", ],    # Β
+    "*C"    =>  String[ "\u039e", ],    # Ξ
+    "*D"    =>  String[ "\u0394", ],    # Δ
+    "*E"    =>  String[ "\u0395", ],    # Ε
+    "*F"    =>  String[ "\u03a6", ],    # Φ
+    "*G"    =>  String[ "\u0393", ],    # Γ
+    "*H"    =>  String[ "\u0397", ],    # Η
+    "*I"    =>  String[ "\u0399", ],    # Ι
+    "*K"    =>  String[ "\u039a", ],    # Κ
+    "*L"    =>  String[ "\u039b", ],    # Λ
+    "*M"    =>  String[ "\u039c", ],    # Μ
+    "*N"    =>  String[ "\u039d", ],    # Ν
+    "*O"    =>  String[ "\u039f", ],    # Ο
+    "*P"    =>  String[ "\u03a0", ],    # Π
+    "*Q"    =>  String[ "\u0398", ],    # Θ
+    "*R"    =>  String[ "\u03a1", ],    # Ρ
+    "*S"    =>  String[ "\u03a3", ],    # Σ
+    "*S3"   =>  String[ "\u03f9", ],    # Ϲ
+    "*T"    =>  String[ "\u03a4", ],    # Τ
+    "*U"    =>  String[ "\u03a5", ],    # Υ
+    "*V"    =>  String[ "\u03dc", ],    # Ϝ
+    "*W"    =>  String[ "\u03a9", ],    # Ω
+    "*X"    =>  String[ "\u03a7", ],    # Χ
+    "*Y"    =>  String[ "\u03a8", ],    # Ψ
+    "*Z"    =>  String[ "\u0396", ],    # Ζ
 )
 
