@@ -23,7 +23,8 @@
 
 # fwdB - the forwards Beta Code (to unicode) dictionary
 fwdB = Dict{String, Vector{String}}(
-    # SubSection 1.1 - Greek, lowercase
+
+    # SubSection 1.1 - Greek, lowercase [1]
     "A"     =>  String[           "\u03b1", ],   #    α
     "B"     =>  String[           "\u03b2", ],   #    β
     "C"     =>  String[           "\u03be", ],   #    ξ
@@ -52,7 +53,8 @@ fwdB = Dict{String, Vector{String}}(
     "X"     =>  String[           "\u03c7", ],   #    χ
     "Y"     =>  String[           "\u03c8", ],   #    ψ
     "Z"     =>  String[           "\u03b6", ],   #    ζ
-    # SubSection 2.1 - Greek, uppercase
+
+    # SubSection 1.1 - Greek, uppercase [1]
     "*A"    =>  String[ "\u0391", ],    # Α
     "*B"    =>  String[ "\u0392", ],    # Β
     "*C"    =>  String[ "\u039e", ],    # Ξ
@@ -79,6 +81,18 @@ fwdB = Dict{String, Vector{String}}(
     "*X"    =>  String[ "\u03a7", ],    # Χ
     "*Y"    =>  String[ "\u03a8", ],    # Ψ
     "*Z"    =>  String[ "\u0396", ],    # Ζ
+
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    ")"     =>  String[ "\u02bc", ],    # ʼ
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A)"    =>  String[ "\u1f00", ],    # ἀ
+    "E)"    =>  String[ "\u1f10", ],    # ἐ
+    "H)"    =>  String[ "\u1f20", ],    # ἠ
+    "I)"    =>  String[ "\u1f30", ],    # ἰ
+    "O)"    =>  String[ "\u1f40", ],    # ὀ
+    "U)"    =>  String[ "\u1f50", ],    # ὐ
+    "W)"    =>  String[ "\u1f60", ],    # ὠ
+    "R)"    =>  String[ "\u1fe4", ],    # ῤ
 )
 
 # revB - the reverse (unicode to) Beta Code dictionary
