@@ -21,6 +21,7 @@
 #                                       Greek Beta Codes                                       #
 #----------------------------------------------------------------------------------------------#
 
+# fwdB - the forwards Beta Code (to unicode) dictionary
 fwdB = Dict{String, Vector{String}}(
     # SubSection 1.1 - Greek, lowercase
     "A"     =>  String[           "\u03b1", ],   #    α
@@ -79,4 +80,14 @@ fwdB = Dict{String, Vector{String}}(
     "*Y"    =>  String[ "\u03a8", ],    # Ψ
     "*Z"    =>  String[ "\u0396", ],    # Ζ
 )
+
+# revB - the reverse (unicode to) Beta Code dictionary
+revB = Dict{String, Vector{String}}()
+for (k, V) in fwdB
+    for v in V
+        push!(get!(() -> Vector{String}[], revB, v), k)
+    end
+end
+
+export fwdB, revB
 
