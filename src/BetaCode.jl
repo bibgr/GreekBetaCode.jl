@@ -1,5 +1,5 @@
 module BetaCode
 
-greet() = print("Hello World!")
+include("codes.jl")
 
 end # module
