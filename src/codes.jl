@@ -93,6 +93,17 @@ fwdB = Dict{String, Vector{String}}(
     "U)"    =>  String[ "\u1f50", ],    # ὐ
     "W)"    =>  String[ "\u1f60", ],    # ὠ
     "R)"    =>  String[ "\u1fe4", ],    # ῤ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "("     =>  String[ "\u02bd", ],    # ʽ
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A("    =>  String[ "\u1f01", ],    # ἁ
+    "E("    =>  String[ "\u1f11", ],    # ἑ
+    "H("    =>  String[ "\u1f21", ],    # ἡ
+    "I("    =>  String[ "\u1f31", ],    # ἱ
+    "O("    =>  String[ "\u1f41", ],    # ὁ
+    "U("    =>  String[ "\u1f51", ],    # ὑ
+    "W("    =>  String[ "\u1f61", ],    # ὡ
+    "R("    =>  String[ "\u1fe5", ],    # ῥ
 )
 
 # revB - the reverse (unicode to) Beta Code dictionary
