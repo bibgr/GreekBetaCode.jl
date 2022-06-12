@@ -381,7 +381,7 @@ fwdB = Dict{String, Vector{String}}(
     "\"7"   =>  String[ "\u2039", "\u203a", ],  # ‹, › (stateful in Beta -> Unicode)
     "\"8"   =>  String[ "\u201c", "\u201e", ],  # “, „ (stateful in Beta -> Unicode)
 
-    # SubSection 3.2 - Brackets [1]
+    # SubSection 3.2 - Brackets [1] (Incomplete / only 1:1 strings)
     "["     =>  String[           "\u005b", ],  # [
     "]"     =>  String[           "\u005d", ],  # ]
     "[1"    =>  String[           "\u0028", ],  # (
@@ -392,20 +392,20 @@ fwdB = Dict{String, Vector{String}}(
     "]3"    =>  String[           "\u007d", ],  # }
     "[4"    =>  String[           "\u27e6", ],  # ⟦
     "]4"    =>  String[           "\u27e7", ],  # ⟧
-    "[5"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
-    "]5"    =>  String[           "\u230b", ],  # ⌋
-    "[6"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
-    "]6"    =>  String[           "\u2309", ],  # ⌉
-    "[7"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
-    "]7"    =>  String[           "\u230b", ],  # ⌋
-    "[8"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
-    "]8"    =>  String[           "\u2309", ],  # ⌉
+    ## "[5"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
+    ## "]5"    =>  String[           "\u230b", ],  # ⌋
+    ## "[6"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
+    ## "]6"    =>  String[           "\u2309", ],  # ⌉
+    ## "[7"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
+    ## "]7"    =>  String[           "\u230b", ],  # ⌋
+    ## "[8"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
+    ## "]8"    =>  String[           "\u2309", ],  # ⌉
     "[9"    =>  String[           "\u2991", ],  # ⦑
     "]9"    =>  String[           "\u2992", ],  # ⦒
 )
 
 # Max Beta key length, for greedy matchings
-maxBetaKeyLen = max([length(i) for i in keys(fwdB)]...)
+maxB = max([length(i) for i in keys(fwdB)]...)
 
 # revB - the reverse (unicode to) Beta Code dictionary
 revB = Dict{String, Vector{String}}()
