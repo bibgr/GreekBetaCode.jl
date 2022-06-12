@@ -309,6 +309,23 @@ fwdB = Dict{String, Vector{String}}(
     "*(/H|" =>  String[       "\u1f9d", ],    # ᾝ
     "*)=H|" =>  String[       "\u1f9e", ],    # ᾞ
     "*(=H|" =>  String[       "\u1f9f", ],    # ᾟ
+    # --- U+1fa# range
+    "W)|"   =>  String[       "\u1fa0", ],    # ᾠ
+    "W(|"   =>  String[       "\u1fa1", ],    # ᾡ
+    "W)\\|" =>  String[       "\u1fa2", ],    # ᾢ
+    "W(\\|" =>  String[       "\u1fa3", ],    # ᾣ
+    "W)/|"  =>  String[       "\u1fa4", ],    # ᾤ
+    "W(/|"  =>  String[       "\u1fa5", ],    # ᾥ
+    "W)=|"  =>  String[       "\u1fa6", ],    # ᾦ
+    "W(=|"  =>  String[       "\u1fa7", ],    # ᾧ
+    "*)W|"  =>  String[       "\u1fa8", ],    # ᾨ
+    "*(W|"  =>  String[       "\u1fa9", ],    # ᾩ
+    "*)\\W|"=>  String[       "\u1faa", ],    # ᾪ
+    "*(\\W|"=>  String[       "\u1fab", ],    # ᾫ
+    "*)/W|" =>  String[       "\u1fac", ],    # ᾬ
+    "*(/W|" =>  String[       "\u1fad", ],    # ᾭ
+    "*)=W|" =>  String[       "\u1fae", ],    # ᾮ
+    "*(=W|" =>  String[       "\u1faf", ],    # ᾯ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "?"     =>  String[       "\u0323", ],    # ̣-
 )
