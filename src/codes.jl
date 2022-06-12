@@ -214,6 +214,23 @@ fwdB = Dict{String, Vector{String}}(
     "*)\\O" =>  String[       "\u1f4a", ],    # Ὂ
     "*)\\U" =>  String[ "\u1fea\u0313", ],    # Ὺ̓   [prob. never used]
     "*)\\W" =>  String[       "\u1f6a", ],    # Ὢ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "(/"    =>  String[       "\u1fde", ],    # ῞
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A(/"   =>  String[       "\u1f05", ],    # ἅ
+    "E(/"   =>  String[       "\u1f15", ],    # ἕ
+    "H(/"   =>  String[       "\u1f25", ],    # ἥ
+    "I(/"   =>  String[       "\u1f35", ],    # ἵ
+    "O(/"   =>  String[       "\u1f45", ],    # ὅ
+    "U(/"   =>  String[       "\u1f55", ],    # ὕ
+    "W(/"   =>  String[       "\u1f65", ],    # ὥ
+    "*(/A"  =>  String[       "\u1f0d", ],    # Ἅ
+    "*(/E"  =>  String[       "\u1f1d", ],    # Ἕ
+    "*(/H"  =>  String[       "\u1f2d", ],    # Ἥ
+    "*(/I"  =>  String[       "\u1f3d", ],    # Ἵ
+    "*(/O"  =>  String[       "\u1f4d", ],    # Ὅ
+    "*(/U"  =>  String[       "\u1f5d", ],    # Ὕ
+    "*(/W"  =>  String[       "\u1f6d", ],    # Ὥ
 )
 
 # Max Beta key length, for greedy matchings
