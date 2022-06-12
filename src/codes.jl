@@ -360,6 +360,15 @@ fwdB = Dict{String, Vector{String}}(
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "?"     =>  String[       "\u0323", ],    # ̣-
+
+    # SubSection 1.3 - Basic Punctuation [1]
+    "."     =>  String[       "\u002e", ],    # .
+    ","     =>  String[       "\u002c", ],    # ,
+    ":"     =>  String[       "\u0387", ],    # ·
+    ";"     =>  String[       "\u037e", ],    # ;
+    "'"     =>  String[       "\u2019", ],    # ’
+    "-"     =>  String[       "\u2010", ],    # ‐
+    "_"     =>  String[       "\u2014", ],    # —
 )
 
 # Max Beta key length, for greedy matchings
