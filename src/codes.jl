@@ -137,6 +137,23 @@ fwdB = Dict{String, Vector{String}}(
     "*/U"   =>  String[       "\u1feb", ],    # Ύ
     "*/W"   =>  String[       "\u1ffb", ],    # Ώ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    ")/"    =>  String[       "\u1fce", ],    # ῎
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A)/"   =>  String[       "\u1f04", ],    # ἄ
+    "E)/"   =>  String[       "\u1f14", ],    # ἔ
+    "H)/"   =>  String[       "\u1f24", ],    # ἤ
+    "I)/"   =>  String[       "\u1f34", ],    # ἴ
+    "O)/"   =>  String[       "\u1f44", ],    # ὄ
+    "U)/"   =>  String[       "\u1f54", ],    # ὔ
+    "W)/"   =>  String[       "\u1f64", ],    # ὤ
+    "*)/A"  =>  String[       "\u1f0c", ],    # Ἄ
+    "*)/E"  =>  String[       "\u1f1c", ],    # Ἔ
+    "*)/H"  =>  String[       "\u1f2c", ],    # Ἤ
+    "*)/I"  =>  String[       "\u1f3c", ],    # Ἴ
+    "*)/O"  =>  String[       "\u1f4c", ],    # Ὄ
+    "*)/U"  =>  String[ "\u1feb\u0313", ],    # Ύ̓
+    "*)/W"  =>  String[       "\u1f6c", ],    # Ὤ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "="     =>  String[       "\u1fc0", ],    # ῀
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A="    =>  String[       "\u1fb6", ],    # ᾶ
@@ -153,6 +170,16 @@ fwdB = Dict{String, Vector{String}}(
     "*)=H"  =>  String[       "\u1f2e", ],    # Ἦ
     "*)=I"  =>  String[       "\u1f3e", ],    # Ἶ
     "*)=W"  =>  String[       "\u1f6e", ],    # Ὦ
+    "A(="   =>  String[       "\u1f07", ],    # ἇ
+    "H(="   =>  String[       "\u1f27", ],    # ἧ
+    "I(="   =>  String[       "\u1f37", ],    # ἷ
+    "U(="   =>  String[       "\u1f57", ],    # ὗ
+    "W(="   =>  String[       "\u1f67", ],    # ὧ
+    "*(=A"  =>  String[       "\u1f0f", ],    # Ἇ
+    "*(=H"  =>  String[       "\u1f2f", ],    # Ἧ
+    "*(=I"  =>  String[       "\u1f3f", ],    # Ἷ
+    "*(=U"  =>  String[       "\u1f5f", ],    # Ὗ
+    "*(=W"  =>  String[       "\u1f6f", ],    # Ὧ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "\\"    =>  String[       "\u0060", ],    # `
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
