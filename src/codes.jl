@@ -103,14 +103,39 @@ fwdB = Dict{String, Vector{String}}(
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "("     =>  String[       "\u02bd", ],    # ʽ
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A("    =>  String[ "\u1f01", ],    # ἁ
-    "E("    =>  String[ "\u1f11", ],    # ἑ
-    "H("    =>  String[ "\u1f21", ],    # ἡ
-    "I("    =>  String[ "\u1f31", ],    # ἱ
-    "O("    =>  String[ "\u1f41", ],    # ὁ
-    "U("    =>  String[ "\u1f51", ],    # ὑ
-    "W("    =>  String[ "\u1f61", ],    # ὡ
-    "R("    =>  String[ "\u1fe5", ],    # ῥ
+    "A("    =>  String[       "\u1f01", ],    # ἁ
+    "E("    =>  String[       "\u1f11", ],    # ἑ
+    "H("    =>  String[       "\u1f21", ],    # ἡ
+    "I("    =>  String[       "\u1f31", ],    # ἱ
+    "O("    =>  String[       "\u1f41", ],    # ὁ
+    "U("    =>  String[       "\u1f51", ],    # ὑ
+    "W("    =>  String[       "\u1f61", ],    # ὡ
+    "R("    =>  String[       "\u1fe5", ],    # ῥ
+    "*(A"   =>  String[       "\u1f09", ],    # Ἁ
+    "*(E"   =>  String[       "\u1f19", ],    # Ἑ
+    "*(H"   =>  String[       "\u1f29", ],    # Ἡ
+    "*(I"   =>  String[       "\u1f39", ],    # Ἱ
+    "*(O"   =>  String[       "\u1f49", ],    # Ὁ
+    "*(U"   =>  String[       "\u1f59", ],    # Ὑ
+    "*(W"   =>  String[       "\u1f69", ],    # Ὡ
+    "*(R"   =>  String[       "\u1fec", ],    # Ῥ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "/"     =>  String[       "\u00b4", ],    # ´
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A/"    =>  String[       "\u1f71", ],    # ά
+    "E/"    =>  String[       "\u1f73", ],    # έ
+    "H/"    =>  String[       "\u1f75", ],    # ή
+    "I/"    =>  String[       "\u1f77", ],    # ί
+    "O/"    =>  String[       "\u1f79", ],    # ό
+    "U/"    =>  String[       "\u1f7b", ],    # ύ
+    "W/"    =>  String[       "\u1f7d", ],    # ώ
+    "*/A"   =>  String[       "\u1fbb", ],    # Ά
+    "*/E"   =>  String[       "\u1fc9", ],    # Έ
+    "*/H"   =>  String[       "\u1fcb", ],    # Ή
+    "*/I"   =>  String[       "\u1fdb", ],    # Ί
+    "*/O"   =>  String[       "\u1ff9", ],    # Ό
+    "*/U"   =>  String[       "\u1feb", ],    # Ύ
+    "*/W"   =>  String[       "\u1ffb", ],    # Ώ
 )
 
 # revB - the reverse (unicode to) Beta Code dictionary
