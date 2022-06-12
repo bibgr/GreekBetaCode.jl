@@ -272,6 +272,28 @@ fwdB = Dict{String, Vector{String}}(
     "U+\\"  =>  String[       "\u1fe2", ],    # ῢ
     "U=+"   =>  String[ "\u03cb\u0342", ],    # ῧ
     "U+="   =>  String[       "\u1fe7", ],    # ῧ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "|"     =>  String[       "\u037a", ],    # ͺ
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    # --- U+1f8# range
+    "A)|"   =>  String[       "\u1f80", ],    # ᾀ
+    "A(|"   =>  String[       "\u1f81", ],    # ᾁ
+    "A)\\|" =>  String[       "\u1f82", ],    # ᾂ
+    "A(\\|" =>  String[       "\u1f83", ],    # ᾃ
+    "A)/|"  =>  String[       "\u1f84", ],    # ᾄ
+    "A(/|"  =>  String[       "\u1f85", ],    # ᾅ
+    "A)=|"  =>  String[       "\u1f86", ],    # ᾆ
+    "A(=|"  =>  String[       "\u1f87", ],    # ᾇ
+    "*)A|"  =>  String[       "\u1f88", ],    # ᾈ
+    "*(A|"  =>  String[       "\u1f89", ],    # ᾉ
+    "*)\\A|"=>  String[       "\u1f8a", ],    # ᾊ
+    "*(\\A|"=>  String[       "\u1f8b", ],    # ᾋ
+    "*)/A|" =>  String[       "\u1f8c", ],    # ᾌ
+    "*(/A|" =>  String[       "\u1f8d", ],    # ᾍ
+    "*)=A|" =>  String[       "\u1f8e", ],    # ᾎ
+    "*(=A|" =>  String[       "\u1f8f", ],    # ᾏ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "?"     =>  String[       "\u0323", ],    # ̣-
 )
 
 # Max Beta key length, for greedy matchings
