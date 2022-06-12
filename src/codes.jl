@@ -98,7 +98,7 @@ fwdB = Dict{String, Vector{String}}(
     "*)H"   =>  String[       "\u1f28", ],    # Ἠ
     "*)I"   =>  String[       "\u1f38", ],    # Ἰ
     "*)O"   =>  String[       "\u1f48", ],    # Ὀ
-    "*)U"   =>  String[ "\u03a5\u0313", ],    # Υ̓
+    "*)U"   =>  String[ "\u03a5\u0313", ],    # Υ̓   [prob. never used]
     "*)W"   =>  String[       "\u1f68", ],    # Ὠ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "("     =>  String[       "\u02bd", ],    # ʽ
@@ -151,14 +151,16 @@ fwdB = Dict{String, Vector{String}}(
     "*)/H"  =>  String[       "\u1f2c", ],    # Ἤ
     "*)/I"  =>  String[       "\u1f3c", ],    # Ἴ
     "*)/O"  =>  String[       "\u1f4c", ],    # Ὄ
-    "*)/U"  =>  String[ "\u1feb\u0313", ],    # Ύ̓
+    "*)/U"  =>  String[ "\u1feb\u0313", ],    # Ύ̓   [prob. never used]
     "*)/W"  =>  String[       "\u1f6c", ],    # Ὤ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "="     =>  String[       "\u1fc0", ],    # ῀
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A="    =>  String[       "\u1fb6", ],    # ᾶ
+    "E="    =>  String[ "\u03b5\u0342", ],    # ε͂   [prob. never used]
     "H="    =>  String[       "\u1fc6", ],    # ῆ
     "I="    =>  String[       "\u1fd6", ],    # ῖ
+    "O="    =>  String[ "\u03bf\u0342", ],    # ο͂   [prob. never used]
     "U="    =>  String[       "\u1fe6", ],    # ῦ
     "W="    =>  String[       "\u1ff6", ],    # ῶ
     "A)="   =>  String[       "\u1f06", ],    # ἆ
