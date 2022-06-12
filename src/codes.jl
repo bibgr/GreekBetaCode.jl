@@ -264,6 +264,14 @@ fwdB = Dict{String, Vector{String}}(
     "I+\\"  =>  String[       "\u1fd2", ],    # ῒ
     "I=+"   =>  String[ "\u03ca\u0342", ],    # ῗ
     "I+="   =>  String[       "\u1fd7", ],    # ῗ
+    "U+"    =>  String[       "\u03cb", ],    # ϋ
+    "*+U"   =>  String[       "\u03ab", ],    # Ϋ
+    "U/+"   =>  String[ "\u03cb\u0301", ],    # ΰ
+    "U+/"   =>  String[       "\u1fe3", ],    # ΰ
+    "U\\+"  =>  String[ "\u03cb\u0300", ],    # ῢ
+    "U+\\"  =>  String[       "\u1fe2", ],    # ῢ
+    "U=+"   =>  String[ "\u03cb\u0342", ],    # ῧ
+    "U+="   =>  String[       "\u1fe7", ],    # ῧ
 )
 
 # Max Beta key length, for greedy matchings
