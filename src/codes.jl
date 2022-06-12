@@ -83,18 +83,25 @@ fwdB = Dict{String, Vector{String}}(
     "*Z"    =>  String[ "\u0396", ],    # Ζ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    ")"     =>  String[ "\u02bc", ],    # ʼ
+    ")"     =>  String[       "\u02bc", ],    # ʼ
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A)"    =>  String[ "\u1f00", ],    # ἀ
-    "E)"    =>  String[ "\u1f10", ],    # ἐ
-    "H)"    =>  String[ "\u1f20", ],    # ἠ
-    "I)"    =>  String[ "\u1f30", ],    # ἰ
-    "O)"    =>  String[ "\u1f40", ],    # ὀ
-    "U)"    =>  String[ "\u1f50", ],    # ὐ
-    "W)"    =>  String[ "\u1f60", ],    # ὠ
-    "R)"    =>  String[ "\u1fe4", ],    # ῤ
+    "A)"    =>  String[       "\u1f00", ],    # ἀ
+    "E)"    =>  String[       "\u1f10", ],    # ἐ
+    "H)"    =>  String[       "\u1f20", ],    # ἠ
+    "I)"    =>  String[       "\u1f30", ],    # ἰ
+    "O)"    =>  String[       "\u1f40", ],    # ὀ
+    "U)"    =>  String[       "\u1f50", ],    # ὐ
+    "W)"    =>  String[       "\u1f60", ],    # ὠ
+    "R)"    =>  String[       "\u1fe4", ],    # ῤ
+    "*)A"   =>  String[       "\u1f08", ],    # Ἀ
+    "*)E"   =>  String[       "\u1f18", ],    # Ἐ
+    "*)H"   =>  String[       "\u1f28", ],    # Ἠ
+    "*)I"   =>  String[       "\u1f38", ],    # Ἰ
+    "*)O"   =>  String[       "\u1f48", ],    # Ὀ
+    "*)U"   =>  String[ "\u03a5\u0313", ],    # Υ̓
+    "*)W"   =>  String[       "\u1f68", ],    # Ὠ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "("     =>  String[ "\u02bd", ],    # ʽ
+    "("     =>  String[       "\u02bd", ],    # ʽ
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A("    =>  String[ "\u1f01", ],    # ἁ
     "E("    =>  String[ "\u1f11", ],    # ἑ
