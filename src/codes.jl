@@ -216,6 +216,9 @@ fwdB = Dict{String, Vector{String}}(
     "*)\\W" =>  String[       "\u1f6a", ],    # Ὢ
 )
 
+# Max Beta key length, for greedy matchings
+maxBetaKeyLen = max([length(i) for i in keys(fwdB)]...)
+
 # revB - the reverse (unicode to) Beta Code dictionary
 revB = Dict{String, Vector{String}}()
 for (k, V) in fwdB
