@@ -369,6 +369,17 @@ fwdB = Dict{String, Vector{String}}(
     "'"     =>  String[       "\u2019", ],    # ’
     "-"     =>  String[       "\u2010", ],    # ‐
     "_"     =>  String[       "\u2014", ],    # —
+
+    # SubSection 1.3 - Basic Punctuation [1]
+    "\""    =>  String[ "\u201c", "\u201d", ],  # “, ” (stateful in Beta -> Unicode)
+    "\"1"   =>  String[           "\u201e", ],  # „
+    "\"2"   =>  String[           "\u201c", ],  # “
+    "\"3"   =>  String[ "\u2018", "\u2019", ],  # ‘, ’ (stateful in Beta -> Unicode)
+    "\"4"   =>  String[           "\u201a", ],  # ‚
+    "\"5"   =>  String[           "\u201b", ],  # ‛
+    "\"6"   =>  String[ "\u00ab", "\u00bb", ],  # «, » (stateful in Beta -> Unicode)
+    "\"7"   =>  String[ "\u2039", "\u203a", ],  # ‹, › (stateful in Beta -> Unicode)
+    "\"8"   =>  String[ "\u201c", "\u201e", ],  # “, „ (stateful in Beta -> Unicode)
 )
 
 # Max Beta key length, for greedy matchings
