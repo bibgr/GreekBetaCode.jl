@@ -137,6 +137,23 @@ fwdB = Dict{String, Vector{String}}(
     "*/U"   =>  String[       "\u1feb", ],    # Ύ
     "*/W"   =>  String[       "\u1ffb", ],    # Ώ
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
+    "="     =>  String[       "\u1fc0", ],    # ῀
+    # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
+    "A="    =>  String[       "\u1fb6", ],    # ᾶ
+    "H="    =>  String[       "\u1fc6", ],    # ῆ
+    "I="    =>  String[       "\u1fd6", ],    # ῖ
+    "U="    =>  String[       "\u1fe6", ],    # ῦ
+    "W="    =>  String[       "\u1ff6", ],    # ῶ
+    "A)="   =>  String[       "\u1f06", ],    # ἆ
+    "H)="   =>  String[       "\u1f26", ],    # ἦ
+    "I)="   =>  String[       "\u1f36", ],    # ἶ
+    "U)="   =>  String[       "\u1f56", ],    # ὖ
+    "W)="   =>  String[       "\u1f66", ],    # ὦ
+    "*)=A"  =>  String[       "\u1f0e", ],    # Ἆ
+    "*)=H"  =>  String[       "\u1f2e", ],    # Ἦ
+    "*)=I"  =>  String[       "\u1f3e", ],    # Ἶ
+    "*)=W"  =>  String[       "\u1f6e", ],    # Ὦ
+    # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "\\"    =>  String[       "\u0060", ],    # `
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A\\"   =>  String[       "\u1f70", ],    # ὰ
