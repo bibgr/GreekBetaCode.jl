@@ -157,10 +157,8 @@ fwdB = Dict{String, Vector{String}}(
     "="     =>  String[       "\u1fc0", ],    # ῀
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A="    =>  String[       "\u1fb6", ],    # ᾶ
-    "E="    =>  String[ "\u03b5\u0342", ],    # ε͂   [prob. never used]
     "H="    =>  String[       "\u1fc6", ],    # ῆ
     "I="    =>  String[       "\u1fd6", ],    # ῖ
-    "O="    =>  String[ "\u03bf\u0342", ],    # ο͂   [prob. never used]
     "U="    =>  String[       "\u1fe6", ],    # ῦ
     "W="    =>  String[       "\u1ff6", ],    # ῶ
     "A)="   =>  String[       "\u1f06", ],    # ἆ
