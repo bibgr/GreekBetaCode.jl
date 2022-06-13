@@ -41,7 +41,7 @@ st0() = Dict{String, Bool}("\"" => 0, "\"3" => 0, "\"6" => 0, "\"7" => 0, "\"8" 
 
 
 #----------------------------------------------------------------------------------------------#
-#                                 Single-Character Transcoding                                 #
+#                      Single-Character Transcoding: BetaCode --> Unicode                      #
 #----------------------------------------------------------------------------------------------#
 
 """
@@ -91,24 +91,19 @@ export kol
 export b2u1
 
 """
-Converts `b` from BetaCode into Unicode.
+`b2u(b::String, st::Dict{String,Bool} = st0())`\n
+Transcodes `b` from BetaCode into Unicode.
 """
-function b2u(b::String,
-             fail::Vector{Symbol} = [:pass, :skip, :fail],
-             st::Dict{String,Bool} = st0())
+function b2u(b::String, st::Dict{String,Bool} = st0())
     U = String[]
     B = String[]
     while length(b) > 0
         succ, theB, theU, curL, st = b2u1(b, st)
-        if (succ) || (fail[1] == :pass)
-            append!(U, [theU])
-            append!(B, [theB])
-        elseif fail[1] == :fail
-            throw(Exception())
-        end
+        append!(U, [theU])
+        append!(B, [theB])
         b = SubString(b, cInd(b, curL+1))
     end
-    return B, U
+    return join(U)
 end
 
 export b2u
