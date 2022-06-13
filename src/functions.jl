@@ -3,10 +3,13 @@
 #----------------------------------------------------------------------------------------------#
 
 """
-`kol(n::Int)`\n
-Returns a `Vector{String}` with `keys(fwdB)` of length = `n`.
+`kol(n::Int, fw::Bool = true)`\n
+Returns a `Vector{String}` with `keys(fw ? fwdB : revB)` of length = `n`.
+Parameter `fw::Bool` controls the dictionary in use:\n
+- `fw = true`: Dictionary `fwdB`;
+- `fw = false`: Dictionary `revB`.
 """
-kol(n::Int, d = fwdB) = [ j for j in keys(d) if length(j) == n ]
+kol(n::Int, fw::Bool = true) = [ j for j in keys(fw ? fwdB : revB) if length(j) == n ]
 
 """
 `cInd(b::AbstractString, i::Int)`\n
@@ -61,7 +64,7 @@ function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
     if curL == 0; return (stop, theB, theU, curL); end
     while (curL > 0) && (!stop)
         theB = b[cRng(b, 1, curL)]
-        if theB in kol(curL)
+        if theB in kol(curL, true)
             stop = true
             theU = fwdB[theB]
         else
@@ -111,7 +114,7 @@ function u2b1(u::AbstractString)
     if curL == 0; return (stop, theB, theU, curL); end
     while (curL > 0) && (!stop)
         theU = u[cRng(u, 1, curL)]
-        if theU in kol(curL, revB)
+        if theU in kol(curL, false)
             stop = true
             theB = revB[theU]
         else
