@@ -415,6 +415,9 @@ for (k, V) in fwdB
     end
 end
 
-export maxB
+# Max Unicode key length, for greedy matchings
+maxU = max([length(i) for i in keys(revB)]...)
+
+export maxB, maxU
 export fwdB, revB
 
