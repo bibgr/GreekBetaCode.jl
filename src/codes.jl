@@ -372,14 +372,6 @@ fwdB = Dict{String, Vector{String}}(
 
     # SubSection 3.1 - Quotation Marks [1]
     "\""    =>  String[ "\u201c", "\u201d", ],  # “, ” (stateful in Beta -> Unicode)
-    "\"1"   =>  String[           "\u201e", ],  # „
-    "\"2"   =>  String[           "\u201c", ],  # “
-    "\"3"   =>  String[ "\u2018", "\u2019", ],  # ‘, ’ (stateful in Beta -> Unicode)
-    "\"4"   =>  String[           "\u201a", ],  # ‚
-    "\"5"   =>  String[           "\u201b", ],  # ‛
-    "\"6"   =>  String[ "\u00ab", "\u00bb", ],  # «, » (stateful in Beta -> Unicode)
-    "\"7"   =>  String[ "\u2039", "\u203a", ],  # ‹, › (stateful in Beta -> Unicode)
-    "\"8"   =>  String[ "\u201c", "\u201e", ],  # “, „ (stateful in Beta -> Unicode)
 
     # SubSection 3.2 - Brackets [1] (Incomplete / only 1:1 strings)
     "["     =>  String[           "\u005b", ],  # [
@@ -392,14 +384,6 @@ fwdB = Dict{String, Vector{String}}(
     "]3"    =>  String[           "\u007d", ],  # }
     "[4"    =>  String[           "\u27e6", ],  # ⟦
     "]4"    =>  String[           "\u27e7", ],  # ⟧
-    ## "[5"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
-    ## "]5"    =>  String[           "\u230b", ],  # ⌋
-    ## "[6"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
-    ## "]6"    =>  String[           "\u2309", ],  # ⌉
-    ## "[7"    =>  String[           "\u2308", ],  # ⌈ (reverse needs lookahead)
-    ## "]7"    =>  String[           "\u230b", ],  # ⌋
-    ## "[8"    =>  String[           "\u230a", ],  # ⌊ (reverse needs lookahead)
-    ## "]8"    =>  String[           "\u2309", ],  # ⌉
     "[9"    =>  String[           "\u2991", ],  # ⦑
     "]9"    =>  String[           "\u2992", ],  # ⦒
 )
