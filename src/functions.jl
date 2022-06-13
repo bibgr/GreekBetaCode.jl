@@ -1,9 +1,13 @@
+#----------------------------------------------------------------------------------------------#
+#                                     Auxiliary Functions                                      #
+#----------------------------------------------------------------------------------------------#
 
 """
 `kol(n::Int)`\n
 Returns a `Vector{String}` with `keys(fwdB)` of length = `n`.
 """
-kol(n::Int) = [ j for j in keys(fwdB) if length(j) == n ]
+kol(n::Int, d = fwdB) = [ j for j in keys(d) if length(j) == n ]
+
 
 """
 `st0()`\n
