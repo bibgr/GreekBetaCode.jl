@@ -71,7 +71,7 @@ function b2u1(b::String, st::Dict{String,Bool} = st0())
     if stop
         if length(theU) > 1
             if theB == "S"
-                theU = (length(b) == 1) || (b[2] == " ") ? theU[1] : theU[2]
+                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[1] : theU[2]
             end
             if theB in keys(st)
                 theU = st[theB] ? theU[2] : theU[1]
@@ -103,7 +103,7 @@ function b2u(b::String,
         elseif fail[1] == :fail
             throw(Exception())
         end
-        b = b[(curL+1):end]
+        b = SubString(b, cInd(b, curL+1))
     end
     return B, U
 end
