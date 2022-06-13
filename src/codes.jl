@@ -98,7 +98,6 @@ fwdB = Dict{String, Vector{String}}(
     "*)H"   =>  String[           "\u1f28", ],   #    Ἠ
     "*)I"   =>  String[           "\u1f38", ],   #    Ἰ
     "*)O"   =>  String[           "\u1f48", ],   #    Ὀ
-    "*)U"   =>  String[     "\u03a5\u0313", ],   #    Υ̓   [prob. never used]
     "*)W"   =>  String[           "\u1f68", ],   #    Ὠ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
@@ -154,7 +153,6 @@ fwdB = Dict{String, Vector{String}}(
     "*)/H"  =>  String[           "\u1f2c", ],   #    Ἤ
     "*)/I"  =>  String[           "\u1f3c", ],   #    Ἴ
     "*)/O"  =>  String[           "\u1f4c", ],   #    Ὄ
-    "*)/U"  =>  String[     "\u1feb\u0313", ],   #    Ύ̓   [prob. never used]
     "*)/W"  =>  String[           "\u1f6c", ],   #    Ὤ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
@@ -218,7 +216,6 @@ fwdB = Dict{String, Vector{String}}(
     "*)\\H" =>  String[           "\u1f2a", ],   #    Ἢ
     "*)\\I" =>  String[           "\u1f3a", ],   #    Ἲ
     "*)\\O" =>  String[           "\u1f4a", ],   #    Ὂ
-    "*)\\U" =>  String[     "\u1fea\u0313", ],   #    Ὺ̓   [prob. never used]
     "*)\\W" =>  String[           "\u1f6a", ],   #    Ὢ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
