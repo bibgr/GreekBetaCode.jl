@@ -71,7 +71,7 @@ function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
     if stop
         if length(theU) > 1
             if theB == "S"
-                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[1] : theU[2]
+                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[2] : theU[1]
             end
             if theB in keys(st)
                 theU = st[theB] ? theU[2] : theU[1]
@@ -87,8 +87,12 @@ function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
     return (stop, theB, theU, curL, st)
 end
 
-export kol
 export b2u1
+
+
+#----------------------------------------------------------------------------------------------#
+#                        Full String Transcoding: BetaCode --> Unicode                         #
+#----------------------------------------------------------------------------------------------#
 
 """
 `b2u(b::String, st::Dict{String,Bool} = st0())`\n
