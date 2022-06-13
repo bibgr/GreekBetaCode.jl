@@ -355,9 +355,6 @@ fwdB = Dict{String, Vector{String}}(
     "W=|"   =>  String[           "\u1ff7", ],   #    ῷ
     "*W|"   =>  String[           "\u1ffc", ],   #    ῼ
 
-    # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "?"     =>  String[           "\u0323", ],   #    ̣-
-
     # SubSection 1.3 - Basic Punctuation [1]
     "."     =>  String[           "\u002e", ],   #    .
     ","     =>  String[           "\u002c", ],   #    ,
