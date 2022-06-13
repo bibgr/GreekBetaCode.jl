@@ -9,20 +9,20 @@ Returns a `Vector{String}` with `keys(fwdB)` of length = `n`.
 kol(n::Int, d = fwdB) = [ j for j in keys(d) if length(j) == n ]
 
 """
-`cInd(b::String, i::Int)`\n
+`cInd(b::AbstractString, i::Int)`\n
 Returns the appropriate `i`-th `Char` index in `b`.
 """
-function cInd(b::String, i::Int)
+function cInd(b::AbstractString, i::Int)
     j = nextind(b, 0)
     for k in 2:i; j = nextind(b, j); end
     return j
 end
 
 """
-`cRng(b::String, i::Int, e::Int)`\n
+`cRng(b::AbstractString, i::Int, e::Int)`\n
 Returns the appropriate `i:j` `Char` range for `b`.
 """
-function cRng(b::String, i::Int, e::Int = length(b))
+function cRng(b::AbstractString, i::Int, e::Int = length(b))
     ji = je = cInd(b, i)
     for k in (i+1):e; je = nextind(b, je); end
     return ji:je
@@ -37,7 +37,7 @@ end
 `st0()`\n
 Returns a reset (initial) state as a `Dict{String, Bool}`.
 """
-st0() = Dict("\"" => false, "\"3" => false, "\"6" => false, "\"7" => false, "\"8" => false)
+st0() = Dict{String, Bool}("\"" => 0, "\"3" => 0, "\"6" => 0, "\"7" => 0, "\"8" => 0)
 
 
 #----------------------------------------------------------------------------------------------#
@@ -55,7 +55,7 @@ BetaCode at the START of `b`, where:
 - `curL::Int` is the current length of matching BetaCode (or <= 1 if failed); and
 - `st::Dict{String,Bool}` is the conversion state, to be passed in a subsequent call to `b2u1`.
 """
-function b2u1(b::String, st::Dict{String,Bool} = st0())
+function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
     stop, theB, theU = false, "", ""
     curL = min(length(b), maxB) # current key length
     if curL == 0; return (stop, theB, theU, curL); end
@@ -80,12 +80,15 @@ function b2u1(b::String, st::Dict{String,Bool} = st0())
         else
             theU = theU[1]
         end
+    else
+        theU = theB # No transcoding
+        curL = length(theU)
     end
     return (stop, theB, theU, curL, st)
 end
 
-# export kol
-# export b2u1
+export kol
+export b2u1
 
 """
 Converts `b` from BetaCode into Unicode.
@@ -108,4 +111,5 @@ function b2u(b::String,
     return B, U
 end
 
+export b2u
 
