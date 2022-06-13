@@ -51,6 +51,28 @@ function b2u1(b::String, st::Dict{String,Bool} = st0())
     return (stop, theB, theU, curL, st)
 end
 
-export kol
-export b2u1
+# export kol
+# export b2u1
+
+"""
+Converts `b` from BetaCode into Unicode.
+"""
+function b2u(b::String,
+             fail::Vector{Symbol} = [:pass, :skip, :fail],
+             st::Dict{String,Bool} = st0())
+    U = String[]
+    B = String[]
+    while length(b) > 0
+        succ, theB, theU, curL, st = b2u1(b, st)
+        if (succ) || (fail[1] == :pass)
+            append!(U, [theU])
+            append!(B, [theB])
+        elseif fail[1] == :fail
+            throw(Exception())
+        end
+        b = b[(curL+1):end]
+    end
+    return B, U
+end
+
 
