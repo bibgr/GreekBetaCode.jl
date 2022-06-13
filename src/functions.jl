@@ -8,12 +8,41 @@ Returns a `Vector{String}` with `keys(fwdB)` of length = `n`.
 """
 kol(n::Int, d = fwdB) = [ j for j in keys(d) if length(j) == n ]
 
+"""
+`cInd(b::String, i::Int)`\n
+Returns the appropriate `i`-th `Char` index in `b`.
+"""
+function cInd(b::String, i::Int)
+    j = nextind(b, 0)
+    for k in 2:i; j = nextind(b, j); end
+    return j
+end
+
+"""
+`cRng(b::String, i::Int, e::Int)`\n
+Returns the appropriate `i:j` `Char` range for `b`.
+"""
+function cRng(b::String, i::Int, e::Int = length(b))
+    ji = je = cInd(b, i)
+    for k in (i+1):e; je = nextind(b, je); end
+    return ji:je
+end
+
+
+#----------------------------------------------------------------------------------------------#
+#                                   Initialization Functions                                   #
+#----------------------------------------------------------------------------------------------#
 
 """
 `st0()`\n
 Returns a reset (initial) state as a `Dict{String, Bool}`.
 """
 st0() = Dict("\"" => false, "\"3" => false, "\"6" => false, "\"7" => false, "\"8" => false)
+
+
+#----------------------------------------------------------------------------------------------#
+#                                 Single-Character Transcoding                                 #
+#----------------------------------------------------------------------------------------------#
 
 """
 `b2u1(b::String, st::Dict{String,Bool} = st0())`\n
@@ -31,7 +60,7 @@ function b2u1(b::String, st::Dict{String,Bool} = st0())
     curL = min(length(b), maxB) # current key length
     if curL == 0; return (stop, theB, theU, curL); end
     while (curL > 0) && (!stop)
-        theB = string(b[1:curL])
+        theB = b[cRng(b, 1, curL)]
         if theB in kol(curL)
             stop = true
             theU = fwdB[theB]
