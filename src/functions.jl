@@ -33,61 +33,60 @@ end
 
 
 #----------------------------------------------------------------------------------------------#
-#                                   Initialization Functions                                   #
+#                                 Greek-Aware Helper Functions                                 #
 #----------------------------------------------------------------------------------------------#
 
-"""
-`st0()`\n
-Returns a reset (initial) state as a `Dict{String, Bool}`.
-"""
-st0() = Dict{String, Bool}("\"" => 0, "\"3" => 0, "\"6" => 0, "\"7" => 0, "\"8" => 0)
+# Final Sigma
+function fσ(b::AbstractString)
+    LA = length(b) == 1 ? SubString(b, 1) : SubString(b, 1, cInd(b, 2))
+    return begin
+        (b[1] == "S") && (
+            occursin(r"S\b", LA) ||
+            occursin(r"S$", LA)
+        )
+    end
+end
 
+export fσ
 
 #----------------------------------------------------------------------------------------------#
 #                      Single-Character Transcoding: BetaCode --> Unicode                      #
 #----------------------------------------------------------------------------------------------#
 
 """
-`b2u1(b::AbstractString, st::Dict{String,Bool} = st0())`\n
-Returns a 5-tuple `(stop, theB, theU, curL, st)` with info on the conversion of ONE piece of
-BetaCode at the START of `b`, where:
-
-- `stop::Bool` indicates whether there was a successful conversion;
+`b2u1(b::AbstractString, qs::Bool = false)`\n
+Returns a 5-tuple `(succ, theB, theU, iAdv, qs)` with info on the conversion of ONE piece of
+BetaCode at the START of `b`, where:\n
+- `succ::Bool` indicates whether there was a successful conversion;
 - `theB::String` is the matched BetaCode (or an unmatched piece if failed);
 - `theU::String` is the converted Unicode (or a copy of `theB` if failed);
-- `curL::Int` is the current length of matching BetaCode (or <= 1 if failed); and
-- `st::Dict{String,Bool}` is the conversion state, to be passed in a subsequent call to `b2u1`.
+- `iAdv::Int` (index advance on next `b`'s conversion) is the current length of matching BetaCode; and
+- `qs::Bool` is the conversion state for single quote ("\""), to be passed in a subsequent call to `b2u1`.
 """
-function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
-    stop, theB, theU = false, "", ""
-    curL = min(length(b), maxB) # current key length
-    if curL == 0; return (stop, theB, theU, curL); end
-    while (curL > 0) && (!stop)
-        theB = b[cRng(b, 1, curL)]
-        if theB in kol(curL, true)
-            stop = true
+function b2u1(b::AbstractString, qs::Bool = false)
+    succ, theB, theU, iAdv = false, "", "", min(length(b), maxB) # current key length
+    if iAdv == 0; return (succ, theB, theU, iAdv, qs); end # empty `b` case
+    while (iAdv > 0) && (!succ)
+        theB = b[cRng(b, 1, iAdv)]
+        if theB in kol(iAdv, true)
+            succ = true
             theU = fwdB[theB]
-        else
-            curL -= 1
-        end
+            if length(theU) == 1;
+                theU = theU[1];
+            else
+                if theB == "S"
+                    theU = fσ(b) ? theU[2] : theU[1]
+                elseif theB == "\""
+                    theU = qs ? theU[1] : theU[2]
+                end
+            end
+        else; iAdv -= 1; end
     end
-    if stop
-        if length(theU) > 1
-            if theB == "S"
-                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[1] : theU[2]
-            end
-            if theB in keys(st)
-                theU = st[theB] ? theU[2] : theU[1]
-                st[theB] = !st[theB]
-            end
-        else
-            theU = theU[1]
-        end
-    else
+    if !succ
         theU = theB # No transcoding
-        curL = length(theU)
+        iAdv = length(theU)
     end
-    return (stop, theB, theU, curL, st)
+    return (succ, theB, theU, iAdv, qs)
 end
 
 export b2u1
