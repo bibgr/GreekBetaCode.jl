@@ -45,7 +45,7 @@ st0() = Dict{String, Bool}("\"" => 0, "\"3" => 0, "\"6" => 0, "\"7" => 0, "\"8" 
 #----------------------------------------------------------------------------------------------#
 
 """
-`b2u1(b::String, st::Dict{String,Bool} = st0())`\n
+`b2u1(b::AbstractString, st::Dict{String,Bool} = st0())`\n
 Returns a 5-tuple `(stop, theB, theU, curL, st)` with info on the conversion of ONE piece of
 BetaCode at the START of `b`, where:
 
@@ -71,7 +71,7 @@ function b2u1(b::AbstractString, st::Dict{String,Bool} = st0())
     if stop
         if length(theU) > 1
             if theB == "S"
-                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[2] : theU[1]
+                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[1] : theU[2]
             end
             if theB in keys(st)
                 theU = st[theB] ? theU[2] : theU[1]
@@ -95,8 +95,8 @@ export b2u1
 #----------------------------------------------------------------------------------------------#
 
 """
-`u2b1(u::String, st::Dict{String,Bool} = st0())`\n
-Returns a 5-tuple `(stop, theB, theU, curL, st)` with info on the conversion of ONE piece of
+`u2b1(u::AbstractString)`\n
+Returns a 4-tuple `(stop, theB, theU, curL)` with info on the conversion of ONE piece of
 BetaCode at the START of `b`, where:
 
 - `stop::Bool` indicates whether there was a successful conversion;
@@ -105,43 +105,45 @@ BetaCode at the START of `b`, where:
 - `curL::Int` is the current length of matching BetaCode (or <= 1 if failed); and
 - `st::Dict{String,Bool}` is the conversion state, to be passed in a subsequent call to `b2u1`.
 """
-function u2b1(b::AbstractString)
+function u2b1(u::AbstractString)
     stop, theB, theU = false, "", ""
-    curL = min(length(b), maxB) # current key length
+    curL = min(length(u), maxU) # current key length
     if curL == 0; return (stop, theB, theU, curL); end
     while (curL > 0) && (!stop)
-        theB = b[cRng(b, 1, curL)]
-        if theB in kol(curL)
+        theU = u[cRng(u, 1, curL)]
+        if theU in kol(curL, revB)
             stop = true
-            theU = fwdB[theB]
+            theB = revB[theU]
         else
             curL -= 1
         end
     end
     if stop
-        if length(theU) > 1
-            if theB == "S"
-                theU = (length(b) == 1) || (b[cInd(b, 2)] == " ") ? theU[2] : theU[1]
+        if length(theB) > 1
+            if theU == "ς"
+                theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[2] : theB[1]
             end
-            if theB in keys(st)
-                theU = st[theB] ? theU[2] : theU[1]
-                st[theB] = !st[theB]
+            if theU == "σ"
+                theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[1] : theB[2]
+            end
+            if occursin(theU, "’„῭“")
+                theB = theB[1]
             end
         else
-            theU = theU[1]
+            theB = theB[1]
         end
     else
-        theU = theB # No transcoding
-        curL = length(theU)
+        theB = theU # No transcoding
+        curL = length(theB)
     end
-    return (stop, theB, theU, curL, st)
+    return (stop, theB, theU, curL)
 end
 
-export b2u1
+export u2b1
 
 
 #----------------------------------------------------------------------------------------------#
-#                        Full String Transcoding: BetaCode --> Unicode                         #
+#                                   Full String Transcoding                                    #
 #----------------------------------------------------------------------------------------------#
 
 """
@@ -157,8 +159,36 @@ function b2u(b::String, st::Dict{String,Bool} = st0())
         append!(B, [theB])
         b = SubString(b, cInd(b, curL+1))
     end
-    return join(U)
+    return B, U
 end
 
-export b2u
+"""
+`u2b(u::String)`\n
+Transcodes `u` from Unicode into BetaCode.
+"""
+function u2b(u::String)
+    B = String[]
+    U = String[]
+    while length(u) > 0
+        succ, theB, theU, curL = u2b1(u)
+        append!(B, [theB])
+        append!(U, [theU])
+        u = SubString(u, cInd(u, curL+1))
+    end
+    return U, B
+end
+
+"""
+`U(b::String)`\n
+Returns the Unicode "version" of `b`.
+"""
+U(b::String) = join(b2u(b)[2])
+
+"""
+`B(u::String)`\n
+Returns the BetaCode "version" of `u`.
+"""
+B(u::String) = join(u2b(u)[2])
+
+export b2u, u2b, U, B
 
