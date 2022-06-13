@@ -415,5 +415,6 @@ for (k, V) in fwdB
     end
 end
 
+export maxB
 export fwdB, revB
 
