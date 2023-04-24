@@ -125,12 +125,11 @@ function u2b1(u::AbstractString)
         if length(theB) > 1
             if theU == "ς"
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[2] : theB[1]
-            end
-            if theU == "σ"
+            elseif theU == "σ"
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[1] : theB[2]
-            end
-            if occursin(theU, "’„῭“")
-                theB = theB[1]
+            else
+                # Defaults to the form that ends with "+"
+                theB = endswith(theB[1], "+") ? theB[1] : theB[2]
             end
         else
             theB = theB[1]
@@ -158,8 +157,8 @@ function b2u(b::String, st::Bool = false)
     B = String[]
     while length(b) > 0
         succ, theB, theU, curL, st = b2u1(b, st)
-        append!(U, [theU])
-        append!(B, [theB])
+        theU isa Vector ? append!(U, [theU[1]]) : append!(U, [theU])
+        theB isa Vector ? append!(B, [theB[1]]) : append!(B, [theB])
         b = SubString(b, cInd(b, curL+1))
     end
     return B, U
@@ -174,8 +173,8 @@ function u2b(u::String)
     U = String[]
     while length(u) > 0
         succ, theB, theU, curL = u2b1(u)
-        append!(B, [theB])
-        append!(U, [theU])
+        theB isa Vector ? append!(B, [theB[1]]) : append!(B, [theB])
+        theU isa Vector ? append!(U, [theU[1]]) : append!(U, [theU])
         u = SubString(u, cInd(u, curL+1))
     end
     return U, B

@@ -123,13 +123,13 @@ fwdB = Dict{String, Vector{String}}(
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "/"     =>  String[           "\u00b4", ],   #    ´
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A/"    =>  String[           "\u1f71", ],   #    ά
-    "E/"    =>  String[           "\u1f73", ],   #    έ
-    "H/"    =>  String[           "\u1f75", ],   #    ή
-    "I/"    =>  String[           "\u1f77", ],   #    ί
-    "O/"    =>  String[           "\u1f79", ],   #    ό
-    "U/"    =>  String[           "\u1f7b", ],   #    ύ
-    "W/"    =>  String[           "\u1f7d", ],   #    ώ
+    "A/"    =>  String[ "\u03ac", "\u1f71", ],   #    ά, ά
+    "E/"    =>  String[ "\u03ad", "\u1f73", ],   #    έ, έ
+    "H/"    =>  String[ "\u03ae", "\u1f75", ],   #    ή, ή
+    "I/"    =>  String[ "\u03af", "\u1f77", ],   #    ί, ί
+    "O/"    =>  String[ "\u03cc", "\u1f79", ],   #    ό, ό
+    "U/"    =>  String[ "\u03cd", "\u1f7b", ],   #    ύ, ύ
+    "W/"    =>  String[ "\u03ce", "\u1f7d", ],   #    ώ, ώ
     "*/A"   =>  String[           "\u1fbb", ],   #    Ά
     "*/E"   =>  String[           "\u1fc9", ],   #    Έ
     "*/H"   =>  String[           "\u1fcb", ],   #    Ή
@@ -264,16 +264,16 @@ fwdB = Dict{String, Vector{String}}(
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "I+"    =>  String[           "\u03ca", ],   #    ϊ
     "*+I"   =>  String[           "\u03aa", ],   #    Ϊ
-    "I/+"   =>  String[           "\u0390", ],   #    ΐ
-    "I+/"   =>  String[           "\u1fd3", ],   #    ΐ
+    "I/+"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ
+    "I+/"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ
     "I\\+"  =>  String[           "\u1fd2", ],   #    ῒ
     "I+\\"  =>  String[           "\u1fd2", ],   #    ῒ
     "I=+"   =>  String[           "\u1fd7", ],   #    ῗ
     "I+="   =>  String[           "\u1fd7", ],   #    ῗ
     "U+"    =>  String[           "\u03cb", ],   #    ϋ
     "*+U"   =>  String[           "\u03ab", ],   #    Ϋ
-    "U/+"   =>  String[           "\u1fe3", ],   #    ΰ
-    "U+/"   =>  String[           "\u1fe3", ],   #    ΰ
+    "U/+"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ
+    "U+/"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ
     "U\\+"  =>  String[           "\u1fe2", ],   #    ῢ
     "U+\\"  =>  String[           "\u1fe2", ],   #    ῢ
     "U=+"   =>  String[           "\u1fe7", ],   #    ῧ
