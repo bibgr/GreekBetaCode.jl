@@ -75,8 +75,9 @@ function b2u1(b::AbstractString, qs::Bool = false)
                 theU = theU[1];
             else
                 if theB == "S"
-                    theU = fσ(b) ? theU[2] : theU[1]
+                    theU = fσ(b) ? theU[1] : theU[2]
                 elseif theB == "\""
+                    qs = !qs
                     theU = qs ? theU[1] : theU[2]
                 end
             end
@@ -149,10 +150,10 @@ export u2b1
 #----------------------------------------------------------------------------------------------#
 
 """
-`b2u(b::String, st::Dict{String,Bool} = st0())`\n
+`b2u(b::String, st::Bool = false)`\n
 Transcodes `b` from BetaCode into Unicode.
 """
-function b2u(b::String, st::Dict{String,Bool} = st0())
+function b2u(b::String, st::Bool = false)
     U = String[]
     B = String[]
     while length(b) > 0
