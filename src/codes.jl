@@ -380,7 +380,7 @@ fwdB = Dict{String, Vector{String}}(
     "]4"    =>  String[           "\u27e7", ],  # ⟧
     "[9"    =>  String[           "\u2991", ],  # ⦑
     "]9"    =>  String[           "\u2992", ],  # ⦒
-)
+) # fwdB = ...
 
 # Max Beta key length, for greedy matchings
 maxB = max([length(i) for i in keys(fwdB)]...)
