@@ -40,7 +40,7 @@ end
 function fσ(b::AbstractString)
     LA = length(b) == 1 ? SubString(b, 1) : SubString(b, 1, cInd(b, 2))
     return begin
-        (b[1] == "S") && (
+        (b[1] == 'S') && (
             occursin(r"S\b", LA) ||
             occursin(r"S$", LA)
         )
