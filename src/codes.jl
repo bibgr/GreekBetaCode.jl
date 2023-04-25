@@ -45,7 +45,7 @@ fwdB = Dict{String, Vector{String}}(
     "P"     =>  String[           "\u03c0", ],   #    π
     "Q"     =>  String[           "\u03b8", ],   #    θ
     "R"     =>  String[           "\u03c1", ],   #    ρ
-    "S"     =>  String[ "\u03c2", "\u03c3", ],   # ς, σ
+    "S"     =>  String[ "\u03c2", "\u03c3", ],   # ς, σ: CONTEXT-determined
     "S1"    =>  String[           "\u03c3", ],   #    σ
     "S2"    =>  String[           "\u03c2", ],   #    ς
     "S3"    =>  String[           "\u03f2", ],   #    ϲ
@@ -126,13 +126,13 @@ fwdB = Dict{String, Vector{String}}(
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "/"     =>  String[           "\u00b4", ],   #    ´
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A/"    =>  String[ "\u03ac", "\u1f71", ],   #    ά, ά
-    "E/"    =>  String[ "\u03ad", "\u1f73", ],   #    έ, έ
-    "H/"    =>  String[ "\u03ae", "\u1f75", ],   #    ή, ή
-    "I/"    =>  String[ "\u03af", "\u1f77", ],   #    ί, ί
-    "O/"    =>  String[ "\u03cc", "\u1f79", ],   #    ό, ό
-    "U/"    =>  String[ "\u03cd", "\u1f7b", ],   #    ύ, ύ
-    "W/"    =>  String[ "\u03ce", "\u1f7d", ],   #    ώ, ώ
+    "A/"    =>  String[ "\u03ac", "\u1f71", ],   #    ά, ά, the FIRST being the default
+    "E/"    =>  String[ "\u03ad", "\u1f73", ],   #    έ, έ, the FIRST being the default
+    "H/"    =>  String[ "\u03ae", "\u1f75", ],   #    ή, ή, the FIRST being the default
+    "I/"    =>  String[ "\u03af", "\u1f77", ],   #    ί, ί, the FIRST being the default
+    "O/"    =>  String[ "\u03cc", "\u1f79", ],   #    ό, ό, the FIRST being the default
+    "U/"    =>  String[ "\u03cd", "\u1f7b", ],   #    ύ, ύ, the FIRST being the default
+    "W/"    =>  String[ "\u03ce", "\u1f7d", ],   #    ώ, ώ, the FIRST being the default
     "*/A"   =>  String[           "\u1fbb", ],   #    Ά
     "*/E"   =>  String[           "\u1fc9", ],   #    Έ
     "*/H"   =>  String[           "\u1fcb", ],   #    Ή
@@ -267,16 +267,16 @@ fwdB = Dict{String, Vector{String}}(
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "I+"    =>  String[           "\u03ca", ],   #    ϊ
     "*+I"   =>  String[           "\u03aa", ],   #    Ϊ
-    "I/+"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ
-    "I+/"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ
+    "I/+"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ, the FIRST being the default
+    "I+/"   =>  String[ "\u0390", "\u1fd3", ],   #    ΐ, ΐ, the FIRST being the default
     "I\\+"  =>  String[           "\u1fd2", ],   #    ῒ
     "I+\\"  =>  String[           "\u1fd2", ],   #    ῒ
     "I=+"   =>  String[           "\u1fd7", ],   #    ῗ
     "I+="   =>  String[           "\u1fd7", ],   #    ῗ
     "U+"    =>  String[           "\u03cb", ],   #    ϋ
     "*+U"   =>  String[           "\u03ab", ],   #    Ϋ
-    "U/+"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ
-    "U+/"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ
+    "U/+"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ, the FIRST being the default
+    "U+/"   =>  String[ "\u03b0", "\u1fe3", ],   #    ΰ, ΰ, the FIRST being the default
     "U\\+"  =>  String[           "\u1fe2", ],   #    ῢ
     "U+\\"  =>  String[           "\u1fe2", ],   #    ῢ
     "U=+"   =>  String[           "\u1fe7", ],   #    ῧ
@@ -361,8 +361,8 @@ fwdB = Dict{String, Vector{String}}(
     # SubSection 1.3 - Basic Punctuation [1]
     "."     =>  String[           "\u002e", ],   #    .
     ","     =>  String[           "\u002c", ],   #    ,
-    ":"     =>  String[           "\u0387", ],   #    ·
-    ";"     =>  String[           "\u037e", ],   #    ;
+    ":"     =>  String[ "\u0387", "\u00b7", ],   #    ·, ·
+    ";"     =>  String[ "\u037e", "\u003b", ],   #    ;, ;
     "'"     =>  String[           "\u2019", ],   #    ’
     "-"     =>  String[           "\u2010", ],   #    ‐
     "_"     =>  String[           "\u2014", ],   #    —
