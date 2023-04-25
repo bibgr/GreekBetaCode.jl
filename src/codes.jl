@@ -1,9 +1,12 @@
 #
-# This partially implements the Greek part of the TLG® Beta Code [1],  i.e.,  mostly  subsection
-#   1.1 - Greek, pp.5--6, directly; indirectly the subsection 1.2 - Combining  Diacritics,  p.6,
-#   under the ``Rule 6: Diacritics'' recomendations  of  [2]  with  the  usage  of  pre-accented
-#   characters; subsection 1.3 - Basic Punctuation, [1]  pp.6--7;  subsection  3.1  -  Quotation
-#   Marks, [1] p.20; and subsection 3.2 - Brackets, [1] pp.21--25.
+# This is a greek language only --- hence, partial --- implementation of the TLG® Beta Code  [1]
+# that aims to cover enough codepoints as to represent an entire Greek New Testament edition  in
+# Beta Code and in corresponding Unicode, with the SBL Greek New Testament  in  mind,  including
+# (i) the Greek Alphabet (subsection 1.1 of [1]); (ii) basic Greek punctuation  (subsection  1.1
+# of [1]); (iii) combining Greek  Diacritics  (subsection  1.3  of  [1]);  as  well  as  partial
+# (iv) quotation  marks  (subsection  3.1  of  [1]);  (v)  brackets  (subsection  3.2  of  [1]);
+# (vi) additional punctuation  and  characters  (subsections  3.3  and  3.4  of  [1]).  Whenever
+# applicable, rules from [2] are accounted for as to reduce or prevent redundancy.
 #
 # # !j 95 -i3 -H-2
 #
