@@ -375,7 +375,7 @@ fwdB = Dict{String, Vector{String}}(
     "\""    =>  String[ "\u201c", "\u201d", ],   # “, ” (stateful in Beta -> Unicode)
     "\"1"   =>  String[ "\u2e42", "\u201e", ],   # ⹂, „ (stateful in Beta -> Unicode)
     "\"3"   =>  String[ "\u2018", "\u2019", ],   # ‘, ’ (stateful in Beta -> Unicode)
-    "\"4"   =>  String[ "\u2e32", "\u201b", ],   # ⸲, ‚ (stateful in Beta -> Unicode)
+    "\"4"   =>  String[ "\u2e32", "\u201a", ],   # ⸲, ‚ (stateful in Beta -> Unicode)
     "\"6"   =>  String[ "\u00ab", "\u00bb", ],   # «, » (stateful in Beta -> Unicode)
     "\"7"   =>  String[ "\u2039", "\u203a", ],   # ‹, › (stateful in Beta -> Unicode)
 
