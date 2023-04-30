@@ -126,7 +126,7 @@ fwdB = Dict{String, Vector{String}}(
     "*(R"   =>  String[           "\u1fec", "Ρ\u0314", ],   #    Ῥ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "/"     =>  String[           "\u0301",  "\u00b4", ],   #    ´
+    "/"     =>  String[           "\u00b4",  "\u0301", ],   #    ´
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A/"    =>  String[ "\u03ac", "\u1f71", "α\u0301", ],   #    ά, ά
     "E/"    =>  String[ "\u03ad", "\u1f73", "ϵ\u0301", ],   #    έ, έ
@@ -191,40 +191,40 @@ fwdB = Dict{String, Vector{String}}(
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
     "\\"    =>  String[           "\u0060",  "\u0300", ],           #    `
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A\\"   =>  String[           "\u1f70", ],   #    ὰ
-    "E\\"   =>  String[           "\u1f72", ],   #    ὲ
-    "H\\"   =>  String[           "\u1f74", ],   #    ὴ
-    "I\\"   =>  String[           "\u1f76", ],   #    ὶ
-    "O\\"   =>  String[           "\u1f78", ],   #    ὸ
-    "U\\"   =>  String[           "\u1f7a", ],   #    ὺ
-    "W\\"   =>  String[           "\u1f7c", ],   #    ὼ
-    "*\\A"  =>  String[           "\u1fba", ],   #    Ὰ
-    "*\\E"  =>  String[           "\u1fc8", ],   #    Ὲ
-    "*\\H"  =>  String[           "\u1fca", ],   #    Ὴ
-    "*\\I"  =>  String[           "\u1fda", ],   #    Ὶ
-    "*\\O"  =>  String[           "\u1ff8", ],   #    Ὸ
-    "*\\U"  =>  String[           "\u1fea", ],   #    Ὺ
-    "*\\W"  =>  String[           "\u1ffa", ],   #    Ὼ
+    "A\\"   =>  String[           "\u1f70", "α\u0300", ],           #    ὰ
+    "E\\"   =>  String[           "\u1f72", "ϵ\u0300", ],           #    ὲ
+    "H\\"   =>  String[           "\u1f74", "η\u0300", ],           #    ὴ
+    "I\\"   =>  String[           "\u1f76", "ι\u0300", ],           #    ὶ
+    "O\\"   =>  String[           "\u1f78", "ο\u0300", ],           #    ὸ
+    "U\\"   =>  String[           "\u1f7a", "υ\u0300", ],           #    ὺ
+    "W\\"   =>  String[           "\u1f7c", "ω\u0300", ],           #    ὼ
+    "*\\A"  =>  String[           "\u1fba", "Α\u0300", ],           #    Ὰ
+    "*\\E"  =>  String[           "\u1fc8", "Ε\u0300", ],           #    Ὲ
+    "*\\H"  =>  String[           "\u1fca", "Η\u0300", ],           #    Ὴ
+    "*\\I"  =>  String[           "\u1fda", "Ι\u0300", ],           #    Ὶ
+    "*\\O"  =>  String[           "\u1ff8", "Ο\u0300", ],           #    Ὸ
+    "*\\U"  =>  String[           "\u1fea", "Υ\u0300", ],           #    Ὺ
+    "*\\W"  =>  String[           "\u1ffa", "Ω\u0300", ],           #    Ὼ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    ")\\"   =>  String[           "\u1fcd", ],   #    ῍
+    ")\\"   =>  String[           "\u1fcd",  "\u0313\u0300" ],      #    ῍
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A)\\"  =>  String[           "\u1f02", ],   #    ἂ
-    "E)\\"  =>  String[           "\u1f12", ],   #    ἒ
-    "H)\\"  =>  String[           "\u1f22", ],   #    ἢ
-    "I)\\"  =>  String[           "\u1f32", ],   #    ἲ
-    "O)\\"  =>  String[           "\u1f42", ],   #    ὂ
-    "U)\\"  =>  String[           "\u1f52", ],   #    ὒ
-    "W)\\"  =>  String[           "\u1f62", ],   #    ὢ
-    "*)\\A" =>  String[           "\u1f0a", ],   #    Ἂ
-    "*)\\E" =>  String[           "\u1f1a", ],   #    Ἒ
-    "*)\\H" =>  String[           "\u1f2a", ],   #    Ἢ
-    "*)\\I" =>  String[           "\u1f3a", ],   #    Ἲ
-    "*)\\O" =>  String[           "\u1f4a", ],   #    Ὂ
-    "*)\\W" =>  String[           "\u1f6a", ],   #    Ὢ
+    "A)\\"  =>  String[           "\u1f02", "α\u0313\u0300", ],   #    ἂ
+    "E)\\"  =>  String[           "\u1f12", "ϵ\u0313\u0300", ],   #    ἒ
+    "H)\\"  =>  String[           "\u1f22", "η\u0313\u0300", ],   #    ἢ
+    "I)\\"  =>  String[           "\u1f32", "ι\u0313\u0300", ],   #    ἲ
+    "O)\\"  =>  String[           "\u1f42", "ο\u0313\u0300", ],   #    ὂ
+    "U)\\"  =>  String[           "\u1f52", "υ\u0313\u0300", ],   #    ὒ
+    "W)\\"  =>  String[           "\u1f62", "ω\u0313\u0300", ],   #    ὢ
+    "*)\\A" =>  String[           "\u1f0a", "Α\u0313\u0300", ],   #    Ἂ
+    "*)\\E" =>  String[           "\u1f1a", "Ε\u0313\u0300", ],   #    Ἒ
+    "*)\\H" =>  String[           "\u1f2a", "Η\u0313\u0300", ],   #    Ἢ
+    "*)\\I" =>  String[           "\u1f3a", "Ι\u0313\u0300", ],   #    Ἲ
+    "*)\\O" =>  String[           "\u1f4a", "Ο\u0313\u0300", ],   #    Ὂ
+    "*)\\W" =>  String[           "\u1f6a", "Ω\u0313\u0300", ],   #    Ὢ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "(/"    =>  String[           "\u1fde", ],   #    ῞
+    "(/"    =>  String[           "\u1fde",  "\u0314\u0301" ],   #    ῞
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A(/"   =>  String[           "\u1f05", ],   #    ἅ
     "E(/"   =>  String[           "\u1f15", ],   #    ἕ
