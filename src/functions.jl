@@ -53,32 +53,54 @@ export fσ
 #                      Single-Character Transcoding: BetaCode --> Unicode                      #
 #----------------------------------------------------------------------------------------------#
 
+
 """
-`b2u1(b::AbstractString, qs::Bool = false)`\n
+`fqs()`\n
+Helper function to return a "false-qs" question state as a `Dict{Int64, Bool}()`.
+"""
+function fqs()
+    return Dict(
+                0   => false,
+                1   => false,
+                3   => false,
+                4   => false,
+                6   => false,
+                7   => false,
+            )
+end
+
+"""
+`b2u1(b::AbstractString, qs::Dict{Int64, Bool} = fqs())`\n
 Returns a 5-tuple `(succ, theB, theU, iAdv, qs)` with info on the conversion of ONE piece of
 BetaCode at the START of `b`, where:\n
 - `succ::Bool` indicates whether there was a successful conversion;
 - `theB::String` is the matched BetaCode (or an unmatched piece if failed);
 - `theU::String` is the converted Unicode (or a copy of `theB` if failed);
 - `iAdv::Int` (index advance on next `b`'s conversion) is the current length of matching BetaCode; and
-- `qs::Bool` is the conversion state for single quote ("\""), to be passed in a subsequent call to `b2u1`.
+- `qs::Dict{Int64, Bool}` is the conversion state for single quote ("\""), to be passed in a subsequent call to `b2u1`.
 """
-function b2u1(b::AbstractString, qs::Bool = false)
+function b2u1(b::AbstractString, qs::Dict{Int64, Bool} = fqs())
     succ, theB, theU, iAdv = false, "", "", min(length(b), maxB) # current key length
     if iAdv == 0; return (succ, theB, theU, iAdv, qs); end # empty `b` case
     while (iAdv > 0) && (!succ)
         theB = b[cRng(b, 1, iAdv)]
         if theB in kol(iAdv, true)
             succ = true
-            theU = fwdB[theB]
-            if length(theU) == 1;
+            theU = fwdB[theB]       # A String[] array
+            if length(theU) == 1;   # Array has one item
                 theU = theU[1];
-            else
+            else                    # Array has two items
                 if theB == "S"
                     theU = fσ(b) ? theU[1] : theU[2]
-                elseif theB == "\""
-                    qs = !qs
-                    theU = qs ? theU[1] : theU[2]
+                elseif startswith(theB, "\"")
+                    if length(theB) == 1
+                        qs[0] = !qs[0]
+                        theU = qs[0] ? theU[1] : theU[2]
+                    else
+                        𝐢 = Int64(theB[2]) - Int64('0')
+                        qs[𝐢] = !qs[𝐢]
+                        theU = qs[𝐢] ? theU[1] : theU[2]
+                    end
                 end
             end
         else; iAdv -= 1; end
@@ -106,16 +128,16 @@ BetaCode at the START of `b`, where:
 - `theB::String` is the matched BetaCode (or an unmatched piece if failed);
 - `theU::String` is the converted Unicode (or a copy of `theB` if failed);
 - `curL::Int` is the current length of matching BetaCode (or <= 1 if failed); and
-- `st::Dict{String,Bool}` is the conversion state, to be passed in a subsequent call to `b2u1`.
 """
 function u2b1(u::AbstractString)
     stop, theB, theU = false, "", ""
+    boundaries = " \t\n,.:;'-_·;’‐—"
     curL = min(length(u), maxU) # current key length
     if curL == 0; return (stop, theB, theU, curL); end
     while (curL > 0) && (!stop)
         theU = u[cRng(u, 1, curL)]
         if theU in kol(curL, false)
-            stop = true
+            stop = true         # stop is an alias for "converted"
             theB = revB[theU]
         else
             curL -= 1
@@ -123,13 +145,16 @@ function u2b1(u::AbstractString)
     end
     if stop
         if length(theB) > 1
-            if theU == "ς"
-                theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[2] : theB[1]
-            elseif theU == "σ"
-                theB = (length(u) == 1) || (u[cInd(u, 2)] in " \t\n,.:;'-_·;’‐—") ? theB[1] : theB[2]
-            else
+            if theU == "ς"      # Assume end-of-string as boundary
+                theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[2] : theB[1]
+            elseif theU == "σ"  # Assume end-of-string as boundary
+                theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[1] : theB[2]
+            elseif true in endswith.(theB, "+")
                 # Defaults to the form that ends with "+"
                 theB = endswith(theB[1], "+") ? theB[1] : theB[2]
+            else
+                # Defaults to shortest, since "# beta codes are stateful
+                theB = length(theB[1]) < length(theB[2]) ? theB[1] : theB[2]
             end
         else
             theB = theB[1]
@@ -149,10 +174,10 @@ export u2b1
 #----------------------------------------------------------------------------------------------#
 
 """
-`b2u(b::String, st::Bool = false)`\n
+`b2u(b::String, st::Dict{Int64, Bool} = fqs())`\n
 Transcodes `b` from BetaCode into Unicode.
 """
-function b2u(b::String, st::Bool = false)
+function b2u(b::String, st::Dict{Int64, Bool} = fqs())
     U = String[]
     B = String[]
     while length(b) > 0
