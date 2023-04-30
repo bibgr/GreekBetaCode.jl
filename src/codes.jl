@@ -372,7 +372,12 @@ fwdB = Dict{String, Vector{String}}(
     "_"     =>  String[           "\u2014", ],   #    —
 
     # SubSection 3.1 - Quotation Marks [1]
-    "\""    =>  String[ "\u201c", "\u201d", ],  # “, ” (stateful in Beta -> Unicode)
+    "\""    =>  String[ "\u201c", "\u201d", ],   # “, ” (stateful in Beta -> Unicode)
+    "\"1"   =>  String[ "\u2e42", "\u201e", ],   # ⹂, „ (stateful in Beta -> Unicode)
+    "\"3"   =>  String[ "\u2018", "\u2019", ],   # ‘, ’ (stateful in Beta -> Unicode)
+    "\"4"   =>  String[ "\u2e32", "\u201b", ],   # ⸲, ‚ (stateful in Beta -> Unicode)
+    "\"6"   =>  String[ "\u00ab", "\u00bb", ],   # «, » (stateful in Beta -> Unicode)
+    "\"7"   =>  String[ "\u2039", "\u203a", ],   # ‹, › (stateful in Beta -> Unicode)
 
     # SubSection 3.2 - Brackets [1] (Incomplete / only 1:1 strings)
     "["     =>  String[           "\u005b", ],  # [
