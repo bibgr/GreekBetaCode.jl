@@ -28,166 +28,168 @@
 fwdB = Dict{String, Vector{String}}(
 
     # SubSection 1.1 - Greek, lowercase [1]
-    "A"     =>  String[           "\u03b1", ],   #    α
-    "B"     =>  String[           "\u03b2", ],   #    β
-    "C"     =>  String[           "\u03be", ],   #    ξ
-    "D"     =>  String[           "\u03b4", ],   #    δ
-    "E"     =>  String[           "\u03b5", ],   #    ε
-    "F"     =>  String[           "\u03c6", ],   #    φ
-    "G"     =>  String[           "\u03b3", ],   #    γ
-    "H"     =>  String[           "\u03b7", ],   #    η
-    "I"     =>  String[           "\u03b9", ],   #    ι
-    "K"     =>  String[           "\u03ba", ],   #    κ
-    "L"     =>  String[           "\u03bb", ],   #    λ
-    "M"     =>  String[           "\u03bc", ],   #    μ
-    "N"     =>  String[           "\u03bd", ],   #    ν
-    "O"     =>  String[           "\u03bf", ],   #    ο
-    "P"     =>  String[           "\u03c0", ],   #    π
-    "Q"     =>  String[           "\u03b8", ],   #    θ
-    "R"     =>  String[           "\u03c1", ],   #    ρ
-    "S"     =>  String[ "\u03c2", "\u03c3", ],   # ς, σ: CONTEXT-determined
-    "S1"    =>  String[           "\u03c3", ],   #    σ
-    "S2"    =>  String[           "\u03c2", ],   #    ς
-    "S3"    =>  String[           "\u03f2", ],   #    ϲ
-    "T"     =>  String[           "\u03c4", ],   #    τ
-    "U"     =>  String[           "\u03c5", ],   #    υ
-    "V"     =>  String[           "\u03dd", ],   #    ϝ
-    "W"     =>  String[           "\u03c9", ],   #    ω
-    "X"     =>  String[           "\u03c7", ],   #    χ
-    "Y"     =>  String[           "\u03c8", ],   #    ψ
-    "Z"     =>  String[           "\u03b6", ],   #    ζ
+    "A"     =>  String[                      "\u03b1", ],   #    α
+    "B"     =>  String[                      "\u03b2", ],   #    β
+    "C"     =>  String[                      "\u03be", ],   #    ξ
+    "D"     =>  String[                      "\u03b4", ],   #    δ
+    "E"     =>  String[                      "\u03b5", ],   #    ε
+    "F"     =>  String[                      "\u03c6", ],   #    φ
+    "G"     =>  String[                      "\u03b3", ],   #    γ
+    "H"     =>  String[                      "\u03b7", ],   #    η
+    "I"     =>  String[                      "\u03b9", ],   #    ι
+    "K"     =>  String[                      "\u03ba", ],   #    κ
+    "L"     =>  String[                      "\u03bb", ],   #    λ
+    "M"     =>  String[                      "\u03bc", ],   #    μ
+    "N"     =>  String[                      "\u03bd", ],   #    ν
+    "O"     =>  String[                      "\u03bf", ],   #    ο
+    "P"     =>  String[                      "\u03c0", ],   #    π
+    "Q"     =>  String[                      "\u03b8", ],   #    θ
+    "R"     =>  String[                      "\u03c1", ],   #    ρ
+    "S"     =>  String[            "\u03c2", "\u03c3", ],   # ς, σ: CONTEXT-determined
+    "S1"    =>  String[                      "\u03c3", ],   #    σ
+    "S2"    =>  String[                      "\u03c2", ],   #    ς
+    "S3"    =>  String[                      "\u03f2", ],   #    ϲ
+    "T"     =>  String[                      "\u03c4", ],   #    τ
+    "U"     =>  String[                      "\u03c5", ],   #    υ
+    "V"     =>  String[                      "\u03dd", ],   #    ϝ
+    "W"     =>  String[                      "\u03c9", ],   #    ω
+    "X"     =>  String[                      "\u03c7", ],   #    χ
+    "Y"     =>  String[                      "\u03c8", ],   #    ψ
+    "Z"     =>  String[                      "\u03b6", ],   #    ζ
 
     # SubSection 1.1 - Greek, uppercase [1]
-    "*A"    =>  String[           "\u0391", ],   #    Α
-    "*B"    =>  String[           "\u0392", ],   #    Β
-    "*C"    =>  String[           "\u039e", ],   #    Ξ
-    "*D"    =>  String[           "\u0394", ],   #    Δ
-    "*E"    =>  String[           "\u0395", ],   #    Ε
-    "*F"    =>  String[           "\u03a6", ],   #    Φ
-    "*G"    =>  String[           "\u0393", ],   #    Γ
-    "*H"    =>  String[           "\u0397", ],   #    Η
-    "*I"    =>  String[           "\u0399", ],   #    Ι
-    "*K"    =>  String[           "\u039a", ],   #    Κ
-    "*L"    =>  String[           "\u039b", ],   #    Λ
-    "*M"    =>  String[           "\u039c", ],   #    Μ
-    "*N"    =>  String[           "\u039d", ],   #    Ν
-    "*O"    =>  String[           "\u039f", ],   #    Ο
-    "*P"    =>  String[           "\u03a0", ],   #    Π
-    "*Q"    =>  String[           "\u0398", ],   #    Θ
-    "*R"    =>  String[           "\u03a1", ],   #    Ρ
-    "*S"    =>  String[           "\u03a3", ],   #    Σ
-    "*S3"   =>  String[           "\u03f9", ],   #    Ϲ
-    "*T"    =>  String[           "\u03a4", ],   #    Τ
-    "*U"    =>  String[           "\u03a5", ],   #    Υ
-    "*V"    =>  String[           "\u03dc", ],   #    Ϝ
-    "*W"    =>  String[           "\u03a9", ],   #    Ω
-    "*X"    =>  String[           "\u03a7", ],   #    Χ
-    "*Y"    =>  String[           "\u03a8", ],   #    Ψ
-    "*Z"    =>  String[           "\u0396", ],   #    Ζ
+    "*A"    =>  String[                      "\u0391", ],   #    Α
+    "*B"    =>  String[                      "\u0392", ],   #    Β
+    "*C"    =>  String[                      "\u039e", ],   #    Ξ
+    "*D"    =>  String[                      "\u0394", ],   #    Δ
+    "*E"    =>  String[                      "\u0395", ],   #    Ε
+    "*F"    =>  String[                      "\u03a6", ],   #    Φ
+    "*G"    =>  String[                      "\u0393", ],   #    Γ
+    "*H"    =>  String[                      "\u0397", ],   #    Η
+    "*I"    =>  String[                      "\u0399", ],   #    Ι
+    "*K"    =>  String[                      "\u039a", ],   #    Κ
+    "*L"    =>  String[                      "\u039b", ],   #    Λ
+    "*M"    =>  String[                      "\u039c", ],   #    Μ
+    "*N"    =>  String[                      "\u039d", ],   #    Ν
+    "*O"    =>  String[                      "\u039f", ],   #    Ο
+    "*P"    =>  String[                      "\u03a0", ],   #    Π
+    "*Q"    =>  String[                      "\u0398", ],   #    Θ
+    "*R"    =>  String[                      "\u03a1", ],   #    Ρ
+    "*S"    =>  String[                      "\u03a3", ],   #    Σ
+    "*S3"   =>  String[                      "\u03f9", ],   #    Ϲ
+    "*T"    =>  String[                      "\u03a4", ],   #    Τ
+    "*U"    =>  String[                      "\u03a5", ],   #    Υ
+    "*V"    =>  String[                      "\u03dc", ],   #    Ϝ
+    "*W"    =>  String[                      "\u03a9", ],   #    Ω
+    "*X"    =>  String[                      "\u03a7", ],   #    Χ
+    "*Y"    =>  String[                      "\u03a8", ],   #    Ψ
+    "*Z"    =>  String[                      "\u0396", ],   #    Ζ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    ")"     =>  String[ "\u0313", "\u02bc", ],   #    ʼ
+    ")"     =>  String[           "\u02bc",  "\u0313", ],   #    ʼ
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A)"    =>  String[           "\u1f00", ],   #    ἀ
-    "E)"    =>  String[           "\u1f10", ],   #    ἐ
-    "H)"    =>  String[           "\u1f20", ],   #    ἠ
-    "I)"    =>  String[           "\u1f30", ],   #    ἰ
-    "O)"    =>  String[           "\u1f40", ],   #    ὀ
-    "U)"    =>  String[           "\u1f50", ],   #    ὐ
-    "W)"    =>  String[           "\u1f60", ],   #    ὠ
-    "R)"    =>  String[           "\u1fe4", ],   #    ῤ
-    "*)A"   =>  String[           "\u1f08", ],   #    Ἀ
-    "*)E"   =>  String[           "\u1f18", ],   #    Ἐ
-    "*)H"   =>  String[           "\u1f28", ],   #    Ἠ
-    "*)I"   =>  String[           "\u1f38", ],   #    Ἰ
-    "*)O"   =>  String[           "\u1f48", ],   #    Ὀ
-    "*)W"   =>  String[           "\u1f68", ],   #    Ὠ
+    # Update: combining is added as to avoid conversion errors such as: 
+    #   B("ἀ") = B("α\u313") --> "A̓" ## Instead of "A)".
+    "A)"    =>  String[           "\u1f00", "α\u0313", ],   #    ἀ
+    "E)"    =>  String[           "\u1f10", "ϵ\u0313", ],   #    ἐ
+    "H)"    =>  String[           "\u1f20", "η\u0313", ],   #    ἠ
+    "I)"    =>  String[           "\u1f30", "ι\u0313", ],   #    ἰ
+    "O)"    =>  String[           "\u1f40", "ο\u0313", ],   #    ὀ
+    "U)"    =>  String[           "\u1f50", "υ\u0313", ],   #    ὐ
+    "W)"    =>  String[           "\u1f60", "ω\u0313", ],   #    ὠ
+    "R)"    =>  String[           "\u1fe4", "ρ\u0313", ],   #    ῤ
+    "*)A"   =>  String[           "\u1f08", "Α\u0313", ],   #    Ἀ
+    "*)E"   =>  String[           "\u1f18", "Ε\u0313", ],   #    Ἐ
+    "*)H"   =>  String[           "\u1f28", "Η\u0313", ],   #    Ἠ
+    "*)I"   =>  String[           "\u1f38", "Ι\u0313", ],   #    Ἰ
+    "*)O"   =>  String[           "\u1f48", "Ο\u0313", ],   #    Ὀ
+    "*)W"   =>  String[           "\u1f68", "Ω\u0313", ],   #    Ὠ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "("     =>  String[ "\u0314", "\u02bd", ],   #    ʽ
+    "("     =>  String[           "\u02bd",  "\u0314", ],   #    ʽ
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A("    =>  String[           "\u1f01", ],   #    ἁ
-    "E("    =>  String[           "\u1f11", ],   #    ἑ
-    "H("    =>  String[           "\u1f21", ],   #    ἡ
-    "I("    =>  String[           "\u1f31", ],   #    ἱ
-    "O("    =>  String[           "\u1f41", ],   #    ὁ
-    "U("    =>  String[           "\u1f51", ],   #    ὑ
-    "W("    =>  String[           "\u1f61", ],   #    ὡ
-    "R("    =>  String[           "\u1fe5", ],   #    ῥ
-    "*(A"   =>  String[           "\u1f09", ],   #    Ἁ
-    "*(E"   =>  String[           "\u1f19", ],   #    Ἑ
-    "*(H"   =>  String[           "\u1f29", ],   #    Ἡ
-    "*(I"   =>  String[           "\u1f39", ],   #    Ἱ
-    "*(O"   =>  String[           "\u1f49", ],   #    Ὁ
-    "*(U"   =>  String[           "\u1f59", ],   #    Ὑ
-    "*(W"   =>  String[           "\u1f69", ],   #    Ὡ
-    "*(R"   =>  String[           "\u1fec", ],   #    Ῥ
+    "A("    =>  String[           "\u1f01", "α\u0314", ],   #    ἁ
+    "E("    =>  String[           "\u1f11", "ϵ\u0314", ],   #    ἑ
+    "H("    =>  String[           "\u1f21", "η\u0314", ],   #    ἡ
+    "I("    =>  String[           "\u1f31", "ι\u0314", ],   #    ἱ
+    "O("    =>  String[           "\u1f41", "ο\u0314", ],   #    ὁ
+    "U("    =>  String[           "\u1f51", "υ\u0314", ],   #    ὑ
+    "W("    =>  String[           "\u1f61", "ω\u0314", ],   #    ὡ
+    "R("    =>  String[           "\u1fe5", "ρ\u0314", ],   #    ῥ
+    "*(A"   =>  String[           "\u1f09", "Α\u0314", ],   #    Ἁ
+    "*(E"   =>  String[           "\u1f19", "Ε\u0314", ],   #    Ἑ
+    "*(H"   =>  String[           "\u1f29", "Η\u0314", ],   #    Ἡ
+    "*(I"   =>  String[           "\u1f39", "Ι\u0314", ],   #    Ἱ
+    "*(O"   =>  String[           "\u1f49", "Ο\u0314", ],   #    Ὁ
+    "*(U"   =>  String[           "\u1f59", "Υ\u0314", ],   #    Ὑ
+    "*(W"   =>  String[           "\u1f69", "Ω\u0314", ],   #    Ὡ
+    "*(R"   =>  String[           "\u1fec", "Ρ\u0314", ],   #    Ῥ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "/"     =>  String[ "\u0301", "\u00b4", ],   #    ´
+    "/"     =>  String[           "\u0301",  "\u00b4", ],   #    ´
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A/"    =>  String[ "\u03ac", "\u1f71", ],   #    ά, ά, the FIRST being the default
-    "E/"    =>  String[ "\u03ad", "\u1f73", ],   #    έ, έ, the FIRST being the default
-    "H/"    =>  String[ "\u03ae", "\u1f75", ],   #    ή, ή, the FIRST being the default
-    "I/"    =>  String[ "\u03af", "\u1f77", ],   #    ί, ί, the FIRST being the default
-    "O/"    =>  String[ "\u03cc", "\u1f79", ],   #    ό, ό, the FIRST being the default
-    "U/"    =>  String[ "\u03cd", "\u1f7b", ],   #    ύ, ύ, the FIRST being the default
-    "W/"    =>  String[ "\u03ce", "\u1f7d", ],   #    ώ, ώ, the FIRST being the default
-    "*/A"   =>  String[           "\u1fbb", ],   #    Ά
-    "*/E"   =>  String[           "\u1fc9", ],   #    Έ
-    "*/H"   =>  String[           "\u1fcb", ],   #    Ή
-    "*/I"   =>  String[           "\u1fdb", ],   #    Ί
-    "*/O"   =>  String[           "\u1ff9", ],   #    Ό
-    "*/U"   =>  String[           "\u1feb", ],   #    Ύ
-    "*/W"   =>  String[           "\u1ffb", ],   #    Ώ
+    "A/"    =>  String[ "\u03ac", "\u1f71", "α\u0301", ],   #    ά, ά
+    "E/"    =>  String[ "\u03ad", "\u1f73", "ϵ\u0301", ],   #    έ, έ
+    "H/"    =>  String[ "\u03ae", "\u1f75", "η\u0301", ],   #    ή, ή
+    "I/"    =>  String[ "\u03af", "\u1f77", "ι\u0301", ],   #    ί, ί
+    "O/"    =>  String[ "\u03cc", "\u1f79", "ο\u0301", ],   #    ό, ό
+    "U/"    =>  String[ "\u03cd", "\u1f7b", "υ\u0301", ],   #    ύ, ύ
+    "W/"    =>  String[ "\u03ce", "\u1f7d", "ω\u0301", ],   #    ώ, ώ
+    "*/A"   =>  String[           "\u1fbb", "Α\u0301", ],   #    Ά
+    "*/E"   =>  String[           "\u1fc9", "Ε\u0301", ],   #    Έ
+    "*/H"   =>  String[           "\u1fcb", "Η\u0301", ],   #    Ή
+    "*/I"   =>  String[           "\u1fdb", "Ι\u0301", ],   #    Ί
+    "*/O"   =>  String[           "\u1ff9", "Ο\u0301", ],   #    Ό
+    "*/U"   =>  String[           "\u1feb", "Υ\u0301", ],   #    Ύ
+    "*/W"   =>  String[           "\u1ffb", "Ω\u0301", ],   #    Ώ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    ")/"    =>  String[           "\u1fce", ],   #    ῎
+    ")/"    =>  String[           "\u1fce",  "\u0313\u0301", ],     #    ῎
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A)/"   =>  String[           "\u1f04", ],   #    ἄ
-    "E)/"   =>  String[           "\u1f14", ],   #    ἔ
-    "H)/"   =>  String[           "\u1f24", ],   #    ἤ
-    "I)/"   =>  String[           "\u1f34", ],   #    ἴ
-    "O)/"   =>  String[           "\u1f44", ],   #    ὄ
-    "U)/"   =>  String[           "\u1f54", ],   #    ὔ
-    "W)/"   =>  String[           "\u1f64", ],   #    ὤ
-    "*)/A"  =>  String[           "\u1f0c", ],   #    Ἄ
-    "*)/E"  =>  String[           "\u1f1c", ],   #    Ἔ
-    "*)/H"  =>  String[           "\u1f2c", ],   #    Ἤ
-    "*)/I"  =>  String[           "\u1f3c", ],   #    Ἴ
-    "*)/O"  =>  String[           "\u1f4c", ],   #    Ὄ
-    "*)/W"  =>  String[           "\u1f6c", ],   #    Ὤ
+    "A)/"   =>  String[           "\u1f04", "α\u0313\u0301", ],     #    ἄ
+    "E)/"   =>  String[           "\u1f14", "ϵ\u0313\u0301", ],     #    ἔ
+    "H)/"   =>  String[           "\u1f24", "η\u0313\u0301", ],     #    ἤ
+    "I)/"   =>  String[           "\u1f34", "ι\u0313\u0301", ],     #    ἴ
+    "O)/"   =>  String[           "\u1f44", "ο\u0313\u0301", ],     #    ὄ
+    "U)/"   =>  String[           "\u1f54", "υ\u0313\u0301", ],     #    ὔ
+    "W)/"   =>  String[           "\u1f64", "ω\u0313\u0301", ],     #    ὤ
+    "*)/A"  =>  String[           "\u1f0c", "Α\u0313\u0301", ],     #    Ἄ
+    "*)/E"  =>  String[           "\u1f1c", "Ε\u0313\u0301", ],     #    Ἔ
+    "*)/H"  =>  String[           "\u1f2c", "Η\u0313\u0301", ],     #    Ἤ
+    "*)/I"  =>  String[           "\u1f3c", "Ι\u0313\u0301", ],     #    Ἴ
+    "*)/O"  =>  String[           "\u1f4c", "Ο\u0313\u0301", ],     #    Ὄ
+    "*)/W"  =>  String[           "\u1f6c", "Ω\u0313\u0301", ],     #    Ὤ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "="     =>  String[ "\u0342", "\u1fc0", ],   #    ῀
+    "="     =>  String[           "\u1fc0",  "\u0342", ],           #    ῀
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
-    "A="    =>  String[           "\u1fb6", ],   #    ᾶ
-    "H="    =>  String[           "\u1fc6", ],   #    ῆ
-    "I="    =>  String[           "\u1fd6", ],   #    ῖ
-    "U="    =>  String[           "\u1fe6", ],   #    ῦ
-    "W="    =>  String[           "\u1ff6", ],   #    ῶ
-    "A)="   =>  String[           "\u1f06", ],   #    ἆ
-    "H)="   =>  String[           "\u1f26", ],   #    ἦ
-    "I)="   =>  String[           "\u1f36", ],   #    ἶ
-    "U)="   =>  String[           "\u1f56", ],   #    ὖ
-    "W)="   =>  String[           "\u1f66", ],   #    ὦ
-    "*)=A"  =>  String[           "\u1f0e", ],   #    Ἆ
-    "*)=H"  =>  String[           "\u1f2e", ],   #    Ἦ
-    "*)=I"  =>  String[           "\u1f3e", ],   #    Ἶ
-    "*)=W"  =>  String[           "\u1f6e", ],   #    Ὦ
-    "A(="   =>  String[           "\u1f07", ],   #    ἇ
-    "H(="   =>  String[           "\u1f27", ],   #    ἧ
-    "I(="   =>  String[           "\u1f37", ],   #    ἷ
-    "U(="   =>  String[           "\u1f57", ],   #    ὗ
-    "W(="   =>  String[           "\u1f67", ],   #    ὧ
-    "*(=A"  =>  String[           "\u1f0f", ],   #    Ἇ
-    "*(=H"  =>  String[           "\u1f2f", ],   #    Ἧ
-    "*(=I"  =>  String[           "\u1f3f", ],   #    Ἷ
-    "*(=U"  =>  String[           "\u1f5f", ],   #    Ὗ
-    "*(=W"  =>  String[           "\u1f6f", ],   #    Ὧ
+    "A="    =>  String[           "\u1fb6", "α\u0342", ],           #    ᾶ
+    "H="    =>  String[           "\u1fc6", "η\u0342", ],           #    ῆ
+    "I="    =>  String[           "\u1fd6", "ι\u0342", ],           #    ῖ
+    "U="    =>  String[           "\u1fe6", "υ\u0342", ],           #    ῦ
+    "W="    =>  String[           "\u1ff6", "ω\u0342", ],           #    ῶ
+    "A)="   =>  String[           "\u1f06", "α\u0313\u0342", ],     #    ἆ
+    "H)="   =>  String[           "\u1f26", "η\u0313\u0342", ],     #    ἦ
+    "I)="   =>  String[           "\u1f36", "ι\u0313\u0342", ],     #    ἶ
+    "U)="   =>  String[           "\u1f56", "υ\u0313\u0342", ],     #    ὖ
+    "W)="   =>  String[           "\u1f66", "ω\u0313\u0342", ],     #    ὦ
+    "*)=A"  =>  String[           "\u1f0e", "Α\u0313\u0342", ],     #    Ἆ
+    "*)=H"  =>  String[           "\u1f2e", "Η\u0313\u0342", ],     #    Ἦ
+    "*)=I"  =>  String[           "\u1f3e", "Ι\u0313\u0342", ],     #    Ἶ
+    "*)=W"  =>  String[           "\u1f6e", "Ω\u0313\u0342", ],     #    Ὦ
+    "A(="   =>  String[           "\u1f07", "α\u0314\u0342", ],     #    ἇ
+    "H(="   =>  String[           "\u1f27", "η\u0314\u0342", ],     #    ἧ
+    "I(="   =>  String[           "\u1f37", "ι\u0314\u0342", ],     #    ἷ
+    "U(="   =>  String[           "\u1f57", "υ\u0314\u0342", ],     #    ὗ
+    "W(="   =>  String[           "\u1f67", "ω\u0314\u0342", ],     #    ὧ
+    "*(=A"  =>  String[           "\u1f0f", "Α\u0314\u0342", ],     #    Ἇ
+    "*(=H"  =>  String[           "\u1f2f", "Η\u0314\u0342", ],     #    Ἧ
+    "*(=I"  =>  String[           "\u1f3f", "Ι\u0314\u0342", ],     #    Ἷ
+    "*(=U"  =>  String[           "\u1f5f", "Υ\u0314\u0342", ],     #    Ὗ
+    "*(=W"  =>  String[           "\u1f6f", "Ω\u0314\u0342", ],     #    Ὧ
 
     # SubSection 1.2 - Combining Diacritics [1] (Modified)
-    "\\"    =>  String[ "\u0300", "\u0060", ],   #    `
+    "\\"    =>  String[           "\u0060",  "\u0300", ],           #    `
     # Suggestion 6: Pre-accented characters vs. combining diacritics [2]
     "A\\"   =>  String[           "\u1f70", ],   #    ὰ
     "E\\"   =>  String[           "\u1f72", ],   #    ὲ
