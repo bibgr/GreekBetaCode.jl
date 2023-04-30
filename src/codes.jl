@@ -358,11 +358,15 @@ fwdB = Dict{String, Vector{String}}(
     "W=|"   =>  String[           "\u1ff7", ],   #    ῷ
     "*W|"   =>  String[           "\u1ffc", ],   #    ῼ
 
+    # Subsection 1.2 (cont'd) - Purely combining
+    "?"     =>  String[           "\u0323", ],   #    ̣- (combined with '-')
+
     # SubSection 1.3 - Basic Punctuation [1]
     "."     =>  String[           "\u002e", ],   #    .
     ","     =>  String[           "\u002c", ],   #    ,
     ":"     =>  String[ "\u0387", "\u00b7", ],   #    ·, ·
     ";"     =>  String[ "\u037e", "\u003b", ],   #    ;, ;
+    "`"     =>  String[           "\u2018", ],   #    ‘ ### NON-STANDARD BUT CONSISTENT ###
     "'"     =>  String[           "\u2019", ],   #    ’
     "-"     =>  String[           "\u2010", ],   #    ‐
     "_"     =>  String[           "\u2014", ],   #    —
