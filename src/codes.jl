@@ -3,10 +3,14 @@
 # that aims to cover enough codepoints as to represent an entire Greek New Testament edition  in
 # Beta Code and in corresponding Unicode, with the SBL Greek New Testament  in  mind,  including
 # (i) the Greek Alphabet (subsection 1.1 of [1]); (ii) basic Greek punctuation  (subsection  1.1
-# of [1]); (iii) combining Greek  Diacritics  (subsection  1.3  of  [1]);  as  well  as  partial
-# (iv) quotation  marks  (subsection  3.1  of  [1]);  (v)  brackets  (subsection  3.2  of  [1]);
-# (vi) additional punctuation  and  characters  (subsections  3.3  and  3.4  of  [1]).  Whenever
-# applicable, rules from [2] are accounted for as to reduce or prevent redundancy.
+# of [1]); (iii) combining Greek Diacritics (subsection 1.3 of [1]); as  well  as  partial  (iv)
+# quotation marks (subsection 3.1 of [1]); (v) brackets (subsection 3.2 of [1]); (vi) additional
+# punctuation and characters (subsections 3.3 and 3.4 of [1]). The code has been revised  as  to
+# include  most  Greek  uses  and  mitigating  Beta  Code's  redundancies,  which  appear  quite
+# frequently. Some rules from [2] are accounted for in convertion  algorithms,  such  as  prefer
+# lower Unicode codepoints when Unicode is redundant, and prefer characters with diacritics over
+# sequences of plain characters plus combining  diacritics  (so  that  converting  from  and  to
+# Unicode actually normalizes characters).
 #
 # # !j 95 -i3 -H-2
 #
@@ -407,6 +411,86 @@ fwdB = Dict{String, Vector{String}}(
     "]4"    =>  String[           "\u27e7", ],  # ⟧
     "[9"    =>  String[           "\u2991", ],  # ⦑
     "]9"    =>  String[           "\u2992", ],  # ⦒
+    "[70"   =>  String[           "\u2e02", ],  # ⸂
+    "]70"   =>  String[           "\u2e03", ],  # ⸃
+    "[71"   =>  String[           "\u2e04", ],  # ⸄
+    "]71"   =>  String[           "\u2e05", ],  # ⸅
+    "[72"   =>  String[           "\u2e09", ],  # ⸉
+    "]72"   =>  String[           "\u2e0a", ],  # ⸊
+    "[82"   =>  String[           "\u2e20", ],  # ⸠
+    "]82"   =>  String[           "\u2e21", ],  # ⸡
+    "[84"   =>  String[           "\u2e26", ],  # ⸦
+    "]84"   =>  String[           "\u2e27", ],  # ⸧
+    "[85"   =>  String[           "\u2e28", ],  # ⸨
+    "]85"   =>  String[           "\u2e29", ],  # ⸩
+
+    # SubSection 3.3 - Additional Punctuation and Characters
+    "%"     =>  String[           "\u2020", ],  # †
+    "%1"    =>  String[           "\u003f", ],  # ?
+    "%2"    =>  String[           "\u002a", ],  # *
+    "%3"    =>  String[           "\u002f", ],  # /
+    "%4"    =>  String[           "\u0021", ],  # !
+    "%5"    =>  String[           "\u007c", ],  # |
+    "%6"    =>  String[           "\u003d", ],  # =
+    "%7"    =>  String[           "\u002b", ],  # +
+    "%8"    =>  String[           "\u0025", ],  # %
+    "%9"    =>  String[           "\u0026", ],  # &
+    "%10"   =>  String[           "\u003a", ],  # :
+    "%11"   =>  String[           "\u2022", ],  # •
+    "%13"   =>  String[           "\u2021", ],  # ‡
+    "%14"   =>  String[           "\u00a7", ],  # §
+    "%15"   =>  String[           "\u02c8", ],  # ˈ
+    "%16"   =>  String[           "\u00a6", ],  # ¦
+    "%17"   =>  String[           "\u2016", ],  # ‖
+    "%19"   =>  String[           "\u2013", ],  # –
+    "%32"   =>  String[           "\u00b4", ],  # ´
+    "%33"   =>  String[           "\u0060", ],  # `
+    "%39"   =>  String[           "\u00a8", ],  # ¨
+    "%43"   =>  String[           "\u00d7", ],  # ×
+    "%98"   =>  String[           "\u0022", ],  # "
+    "%99"   =>  String[           "\u2248", ],  # ≈
+    "%101"  =>  String[           "\u0023", ],  # #
+    "%103"  =>  String[           "\u005c", ],  # \
+    "%104"  =>  String[           "\u005e", ],  # ^
+    "%107"  =>  String[           "\u007e", ],  # ~
+    "%108"  =>  String[           "\u00b1", ],  # ±
+    "%161"  =>  String[           "\u00f7", ],  # ÷
+    "%163"  =>  String[           "\u00b6", ],  # ¶
+
+    # Subsection 3.4 - Additional Characters
+
+    # SubSection 3.4a - Including Further Greek Letters &tc...
+    "#"     =>  String[           "\u0374", ],  # ʹ (Keraia)
+    "*#1"   =>  String[           "\u03de", ],  # Ϟ
+    "#1"    =>  String[           "\u03df", ],  # ϟ
+    "*#2"   =>  String[           "\u03da", ],  # Ϛ
+    "#2"    =>  String[           "\u03db", ],  # ϛ
+    "*#3"   =>  String[           "\u03d8", ],  # Ϙ
+    "#3"    =>  String[           "\u03d9", ],  # ϙ
+    "*#5"   =>  String[           "\u03e0", ],  # Ϡ
+    "#5"    =>  String[           "\u03e1", ],  # ϡ
+    "#6"    =>  String[           "\u2e0f", ],  # ⸏
+    "#8"    =>  String[           "\u2e10", ],  # ⸐
+    "#10"   =>  String[           "\u03fd", ],  # Ͻ
+    "#11"   =>  String[           "\u03ff", ],  # Ͽ
+    "#12"   =>  String[           "\u2014", ],  # — (em-dash)
+    "#13"   =>  String[           "\u203b", ],  # ※
+    "#14"   =>  String[           "\u2e16", ],  # ⸖
+    "#15"   =>  String[           "\u003e", ],  # >
+    "#16"   =>  String[           "\u03fe", ],  # Ͼ
+    "#18"   =>  String[           "\u003c", ],  # <
+    "#22"   =>  String[           "\u0375", ],  # ͵ (Keraia, lower)
+
+    # SubSection 3.4c - Including New Testament Sigla &tc...
+    "#717"  =>  String[           "\u2e00", ],  # ⸀
+    "#718"  =>  String[           "\u2e01", ],  # ⸁
+    "#719"  =>  String[           "\u2e06", ],  # ⸆
+    "#720"  =>  String[           "\u2e07", ],  # ⸇
+    "#722"  =>  String[           "\u2135", ],  # ℵ (Alepf Symbol)
+    "#723"  =>  String[          "\U1d516", ],  # 𝔖 (Septuagint)
+    "#724"  =>  String[           "\u210c", ],  # ℌ (Hebrew Old Testament)
+    "#725"  =>  String[          "\U1d510", ],  # 𝔐 (Majority reading NT, MSS)
+
 ) # fwdB = ...
 
 # Max Beta key length, for greedy matchings
