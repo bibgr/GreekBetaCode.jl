@@ -1,7 +1,16 @@
 name = "BetaCode"
 uuid = "9dc342f4-d0cc-4e90-9103-06b4474f2d96"
-authors = ["cnaak "]
+authors = ["C Naaktgeboren <NaaktgeborenC.PhD@gmail.com>"]
 version = "0.1.0"
 
 [deps]
 Combinatorics = "861a8166-3701-5b0c-9a16-15d98fcdc6aa"
+
+[compat]
+Combinatorics = "1"
+julia = "^1.8"
+
+[extras]
+
+[targets]
+
