@@ -165,11 +165,11 @@ function u2b1(u::AbstractString)
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[2] : theB[1]
             elseif theU == "σ"  # Assume end-of-string as boundary
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[1] : theB[2]
-            # Having a '+' (49 revB entries)
+            # Having a '+' (68 revB entries)
             elseif true in endswith.(theB, "+")
                 # Defaults to the form that ends with "+"
                 theB = endswith(theB[1], "+") ? theB[1] : theB[2]
-            # Mixed stateful / standalone bracket (2 revB entries)
+            # Mixed stateful / standalone bracket (5 revB entries)
             else
                 # Defaults to shortest, since {"#} beta codes are stateful
                 theB = theB[findmin(map(length, theB))[2]]
