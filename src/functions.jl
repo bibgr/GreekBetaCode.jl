@@ -152,23 +152,27 @@ function u2b1(u::AbstractString)
         theU = u[cRng(u, 1, curL)]
         if theU in kol(curL, false)
             stop = true         # stop is an alias for "converted"
-            theB = revB[theU]
+            theB = revB[theU]   # A String[] array
         else
             curL -= 1
         end
     end
     if stop
+        # 53 known cases in revB
         if length(theB) > 1
+            # Stateful Sigma / Stigma (2 revB entries)
             if theU == "ς"      # Assume end-of-string as boundary
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[2] : theB[1]
             elseif theU == "σ"  # Assume end-of-string as boundary
                 theB = (length(u) == 1) || (u[cInd(u, 2)] in boundaries) ? theB[1] : theB[2]
+            # Having a '+' (49 revB entries)
             elseif true in endswith.(theB, "+")
                 # Defaults to the form that ends with "+"
                 theB = endswith(theB[1], "+") ? theB[1] : theB[2]
+            # Mixed stateful / standalone bracket (2 revB entries)
             else
-                # Defaults to shortest, since "# beta codes are stateful
-                theB = length(theB[1]) < length(theB[2]) ? theB[1] : theB[2]
+                # Defaults to shortest, since {"#} beta codes are stateful
+                theB = theB[findmin(map(length, theB))[2]]
             end
         else
             theB = theB[1]
