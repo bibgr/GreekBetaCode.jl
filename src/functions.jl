@@ -89,9 +89,11 @@ function b2u1(b::AbstractString, qs::Dict{Int64, Bool} = fqs())
             theU = fwdB[theB]       # A String[] array
             if length(theU) == 1;   # Array has one item
                 theU = theU[1];
-            else                    # Array has two items
+            else                    # Array has 2+ items
+                # Stateful Sigma / Stigma
                 if theB == "S"
                     theU = fσ(b) ? theU[1] : theU[2]
+                # Stateful Brackets
                 elseif startswith(theB, "\"")
                     if length(theB) == 1
                         qs[0] = !qs[0]
@@ -100,6 +102,18 @@ function b2u1(b::AbstractString, qs::Dict{Int64, Bool} = fqs())
                         𝐢 = Int64(theB[2]) - Int64('0')
                         qs[𝐢] = !qs[𝐢]
                         theU = qs[𝐢] ? theU[1] : theU[2]
+                    end
+                # Unicode Combinatorics: (i) shortest, (ii) lowest codepoint
+                else
+                    LEN = map(length, theU)             # Lengths
+                    mVL = minimum(LEN)                  # Minimum length
+                    CNT = count(==(mVL), LEN)           # It's count
+                    if CNT == 1
+                        mDX = indexin([mVL, ], LEN)[1]  # It's index
+                        theU = theU[mDX]                # Sole min len string
+                    else
+                        newU = [ theU[j] for j in findall(==(mVL), LEN) ]
+                        theU = sort(newU)[1]            # min code min len string
                     end
                 end
             end
