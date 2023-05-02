@@ -1,4 +1,4 @@
-![GreekBetaCode](https://github.com/bibgr/GreekBetaCode.jl/blob/main/docs/assets/logo.svg?raw=true)
+![GreekBetaCode](https://github.com/bibgr/GreekBetaCode.jl/blob/main/docs/assets/logo.png?raw=true)
 
 # GreekBetaCode.jl
 Partial greek implementation of the TLG® Beta Code in Julia
