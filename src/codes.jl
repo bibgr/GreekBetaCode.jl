@@ -507,6 +507,3 @@ end
 # Max Unicode key length, for greedy matchings
 maxU = max([length(i) for i in keys(revB)]...)
 
-export maxB, maxU
-export fwdB, revB
-
