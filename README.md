@@ -12,7 +12,7 @@ codes, as well as latin, coptic, hebrew, and a plethora of seemingly unrelated c
 particular, editions of Greek New Testaments with critical apparata, such as SBL's are the
 must-cover character set for the library. Beyond this "core" application, the selection of
 covered characters has been somewhat arbitrary, mainly focusing on familiar characters in the
-U+00XX, U+03XX, and U+20XX Unicode codepoint ranges.
+U+00XX, U+03XX, and U+20XX Unicode[3] codepoint ranges.
 
 The package is fairly straight-forward, providing two conversion functions: (1) From Beta to
 Unicode, and (2) From Unicode to Beta. The functions are erspectively named `U` and `B`:
@@ -129,6 +129,26 @@ julia> [ i[1] for i in U.(B.(inputs)) ]
  'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
 ```
 
+The package also exports the `b2u` and `u2b` functions, which are tokenizing, lower-level
+functions than `U` and `B`. Actually, both `B` and `U` call `u2b` and `b2u`, respectively:
+
+```julia-repl
+julia> U("A(/|+")   # One character with several diacritics... turns into a 2-Char String!
+"ᾅ¨"
+
+julia> b2u("A(/|+") # With the tokenizing version, we can see what happend:
+(["A(/|", "+"], ["ᾅ", "¨"])
+
+julia> u2b.(inputs)	# All inputs (from above) are tokenized into a single entity:
+6-element Vector{Tuple{Vector{String}, Vector{String}}}:
+ (["ὰ̔"], ["A(\\"])
+ (["ἃ"], ["A(\\"])
+ (["̀ἁ"], ["A(\\"])
+ (["̀̔α"], ["A(\\"])
+ (["̔ὰ"], ["A(\\"])
+ (["̔̀α"], ["A(\\"])
+```
+
 # Author
 C Naaktgeboren. [Lattes](http://lattes.cnpq.br/8621139258082919).
 
@@ -164,5 +184,9 @@ How to cite this project:
 [2] Yannis Haralambous. Guidelines and Suggested Amendments to the Greek Unicode Tables.
     21st International Unicode Conference, Unicode Consortium, May 2002, Dublin, Ireland.
     Paper hal-02112005. https://hal.archives-ouvertes.fr/hal-02112005.
+
+[3] The Unicode Consortium. The Unicode Standard, Version 15.0.0, (Mountain View, CA: The
+    Unicode Consortium, 2022. ISBN 978-1-936213-32-0).
+    https://www.unicode.org/versions/Unicode15.0.0. Accessed 2023-05-02.
 ```
 
