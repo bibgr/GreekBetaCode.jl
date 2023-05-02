@@ -1,4 +1,4 @@
-module BetaCode
+module GreekBetaCode
 
 using Combinatorics
 
