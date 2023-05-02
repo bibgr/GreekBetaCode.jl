@@ -21,7 +21,7 @@ Unicode, and (2) From Unicode to Beta. The functions are erspectively named `U` 
 
 Entering Beta and getting Unicode:
 
-```julia-repl
+```julia
 julia> using GreekBetaCode
 [ Info: Precompiling GreekBetaCode [9dc342f4-d0cc-4e90-9103-06b4474f2d96]
 
@@ -41,7 +41,7 @@ Which, in a free translation, means: "Jesus said to her: ‘I am the ressurectio
 
 Entering Unicode and getting Beta:
 
-```julia-repl
+```julia
 julia> uni = U(txt)
 "Εἶπεν αὐτῇ ὁ Ἰησοῦς· Ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή"
 
@@ -62,7 +62,7 @@ Some conversion rules are enforced in case of ambiguity, such as:
 Therefore, owing to these rules, when the conversions are performed twice, i.e., back and forth
 to a given format, whether Beta or Unicode, they have the effect of normalizing their input:
 
-```julia-repl
+```julia
 julia> bs = [ "I+/", "I/+" ] # Beta input codes
 2-element Vector{String}:
  "I+/"
@@ -89,7 +89,7 @@ julia> BS .== bs # Due to enforced standards, only the second input is equal
 
 Normalizing combining diacritics with accented characters in Unicode:
 
-```julia-repl
+```julia
 julia> using Combinatorics
 
 julia> inputs = String[join(i) for i in permutations(["α\u0300\u0314"...])]
@@ -132,14 +132,14 @@ julia> [ i[1] for i in U.(B.(inputs)) ]
 The package also exports the `b2u` and `u2b` functions, which are tokenizing, lower-level
 functions than `U` and `B`. Actually, both `B` and `U` call `u2b` and `b2u`, respectively:
 
-```julia-repl
+```julia
 julia> U("A(/|+")   # One character with several diacritics... turns into a 2-Char String!
 "ᾅ¨"
 
 julia> b2u("A(/|+") # With the tokenizing version, we can see what happend:
 (["A(/|", "+"], ["ᾅ", "¨"])
 
-julia> u2b.(inputs)	# All inputs (from above) are tokenized into a single entity:
+julia> u2b.(inputs)	# All inputs (from above) are tokenized into a single token:
 6-element Vector{Tuple{Vector{String}, Vector{String}}}:
  (["ὰ̔"], ["A(\\"])
  (["ἃ"], ["A(\\"])
