@@ -37,7 +37,7 @@ julia> uni = U(txt)
 "Εἶπεν αὐτῇ ὁ Ἰησοῦς· Ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή"
 ```
 
-Which means, in a free translation: "Jesus said to her: ‘I am the ressurection and the life’".
+Which, in a free translation, means: "Jesus said to her: ‘I am the ressurection and the life’ ".
 
 Entering Unicode and getting Beta:
 
@@ -62,7 +62,72 @@ Some conversion rules are enforced in case of ambiguity, such as:
 Therefore, owing to these rules, when the conversions are performed twice, i.e., back and forth
 to a given format, whether Beta or Unicode, they have the effect of normalizing their input:
 
+```julia-repl
+julia> bs = [ "I+/", "I/+" ] # Beta input codes
+2-element Vector{String}:
+ "I+/"
+ "I/+"
 
+julia> us = U.(bs)
+2-element Vector{String}:
+ "ΐ"
+ "ΐ"
+
+julia> us[1] == us[2] # Both beta inputs produced the same output
+true
+
+julia> BS = B.(us) # Converted back to Beta codes. Notice the uniformity
+2-element Vector{String}:
+ "I/+"
+ "I/+"
+
+julia> BS .== bs # Due to enforced standards, only the second input is equal
+2-element BitVector:
+ 0
+ 1
+```
+
+Normalizing combining diacritics with accented characters in Unicode:
+
+```julia-repl
+julia> using Combinatorics
+
+julia> inputs = String[join(i) for i in permutations(["α\u0300\u0314"...])]
+6-element Vector{String}:
+ "ὰ̔"
+ "ἃ"
+ "̀ἁ"
+ "̀̔α"	# The 6 permutations of "α" and two combining diacritics are print!
+ "̔ὰ"
+ "̔̀α"
+
+julia> B.(inputs)
+6-element Vector{String}:
+ "A(\\"
+ "A(\\"
+ "A(\\"
+ "A(\\" # They all converted to the same beta code
+ "A(\\"
+ "A(\\"
+
+julia> U.(B.(inputs))
+6-element Vector{String}:
+ "ἃ"
+ "ἃ"
+ "ἃ"
+ "ἃ"    # They all converted again to Unicode... this time, they are all the same:
+ "ἃ"
+ "ἃ"
+
+julia> [ i[1] for i in U.(B.(inputs)) ]
+6-element Vector{Char}:
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+ 'ἃ': Unicode U+1F03 (category Ll: Letter, lowercase)
+```
 
 # Author
 C Naaktgeboren. [Lattes](http://lattes.cnpq.br/8621139258082919).
