@@ -47,7 +47,6 @@ function fσ(b::AbstractString)
     end
 end
 
-export fσ
 
 #----------------------------------------------------------------------------------------------#
 #                      Single-Character Transcoding: BetaCode --> Unicode                      #
@@ -126,8 +125,6 @@ function b2u1(b::AbstractString, qs::Dict{Int64, Bool} = fqs())
     return (succ, theB, theU, iAdv, qs)
 end
 
-export b2u1
-
 
 #----------------------------------------------------------------------------------------------#
 #                      Single-Character Transcoding: Unicode --> BetaCode                      #
@@ -184,8 +181,6 @@ function u2b1(u::AbstractString)
     return (stop, theB, theU, curL)
 end
 
-export u2b1
-
 
 #----------------------------------------------------------------------------------------------#
 #                                   Full String Transcoding                                    #
@@ -235,5 +230,6 @@ Returns the BetaCode "version" of `u`.
 """
 B(u::String) = join(u2b(u)[2])
 
-export b2u, u2b, U, B
+export b2u, u2b
+export U, B
 
