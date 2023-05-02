@@ -1,11 +1,68 @@
 ![GreekBetaCode](https://github.com/bibgr/GreekBetaCode.jl/blob/main/docs/assets/logo.png?raw=true)
 
 # GreekBetaCode.jl
+
 Partial greek implementation of the TLG® Beta Code in Julia
 
 # Description
 
+This package partially implements the greek parts of the Thesaurus Linguae Graecae, TLG®, Beta
+Code. The rationale is to deal with greek text only (thus leaving out control and markup beta
+codes, as well as latin, coptic, hebrew, and a plethora of seemingly unrelated codes). In
+particular, editions of Greek New Testaments with critical apparata, such as SBL's are the
+must-cover character set for the library. Beyond this "core" application, the selection of
+covered characters has been somewhat arbitrary, mainly focusing on familiar characters in the
+U+00XX, U+03XX, and U+20XX Unicode codepoint ranges.
+
+The package is fairly straight-forward, providing two conversion functions: (1) From Beta to
+Unicode, and (2) From Unicode to Beta. The functions are erspectively named `U` and `B`:
+
 # Examples
+
+Entering Beta and getting Unicode:
+
+```julia-repl
+julia> using GreekBetaCode
+[ Info: Precompiling GreekBetaCode [9dc342f4-d0cc-4e90-9103-06b4474f2d96]
+
+julia> U
+U (generic function with 1 method)
+
+julia> B
+B (generic function with 1 method)
+
+julia> txt = "*EI)=PEN AU)TH=| O( *)IHSOU=S: *)EGW/ EI)MI H( A)NA/STASIS KAI\\ H( ZWH/";
+
+julia> uni = U(txt)
+"Εἶπεν αὐτῇ ὁ Ἰησοῦς· Ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή"
+```
+
+Which means, in a free translation: "Jesus said to her: ‘I am the ressurection and the life’".
+
+Entering Unicode and getting Beta:
+
+```julia-repl
+julia> uni = U(txt)
+"Εἶπεν αὐτῇ ὁ Ἰησοῦς· Ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή"
+
+julia> B(uni)
+"*EI)=PEN AU)TH=| O( *)IHSOU=S2: *)EGW/ EI)MI H( A)NA/STASIS KAI\\ H( ZWH/"
+```
+
+Some conversion rules are enforced in case of ambiguity, such as:
+
+1. Always prefer Unicode characters with diacritics over plain characters folowed by combining
+   diacritics; This is done by always preferring the lesser number of Unicode codepoints.
+2. Always prefer Unicode characters of lower codepoint values for the same glyph.
+3. In Beta, diacritics always follows, i.e. are given after, the target character.
+4. In Beta, breathings such as psili and dasia, precede accents.
+5. In Beta, accents such as oxia, varia, perispomeni, and dialiticas, precede subscribed iotas.
+6. When generating Beta, dialitica accents are always placed last.
+
+Therefore, owing to these rules, when the conversions are performed twice, i.e., back and forth
+to a given format, whether Beta or Unicode, they have the effect of normalizing their input:
+
+
 
 # Author
 C Naaktgeboren. [Lattes](http://lattes.cnpq.br/8621139258082919).
